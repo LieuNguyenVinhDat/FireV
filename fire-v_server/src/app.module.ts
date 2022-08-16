@@ -4,9 +4,16 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { VideoModule } from './video/video.module';
 import { CommentModule } from './comment/comment.module';
+import { MongooseModule } from '@nestjs/mongoose';
+import databaseConfig from './configs/database.config';
 
 @Module({
-  imports: [UserModule, VideoModule, CommentModule],
+  imports: [
+    MongooseModule.forRoot(databaseConfig().appDatabase),
+    UserModule, 
+    VideoModule, 
+    CommentModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
