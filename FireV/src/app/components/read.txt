@@ -1,0 +1,1 @@
+chỗ create các component dùng chung cho mọi trang
