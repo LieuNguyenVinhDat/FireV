@@ -10,10 +10,14 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { ChannelComponent } from './components/channel/channel.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChannelComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
