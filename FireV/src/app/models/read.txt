@@ -1,0 +1,1 @@
+viết các interface model cần có cho app
