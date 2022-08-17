@@ -11,12 +11,16 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { ChannelComponent } from './components/channel/channel.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ChannelComponent,
+    NavbarComponent,
+    SideBarComponent,
 
   ],
   imports: [
