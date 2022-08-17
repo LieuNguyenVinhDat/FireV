@@ -11,6 +11,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { ChannelComponent } from './components/channel/channel.component';
+import { HomeComponent } from './components/home/home.component';
+import { SubscribeComponent } from './components/subscribe/subscribe.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 
@@ -19,9 +21,10 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
   declarations: [
     AppComponent,
     ChannelComponent,
+    HomeComponent,
+    SubscribeComponent,
     NavbarComponent,
     SideBarComponent,
-
   ],
   imports: [
     BrowserModule,
