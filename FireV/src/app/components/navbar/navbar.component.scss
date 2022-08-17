@@ -17,9 +17,12 @@
     padding-left: 40px;
 }
 
+
 .header__left img {
     width: 100px;
     margin-left: 15px;
+    margin-top: 10px;
+    margin-left: 40px;
 }
 
 .header i {
@@ -34,6 +37,23 @@
     padding: 0;
     display: flex;
 }
+
+.header__icons{
+  // width: 200px;
+  display: flex;
+  flex-direction: row;
+}
+
+.rounded-circle{
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
+}
+.name-user{
+  margin-top: 13px;
+  margin-left: 2px;
+}
+
 
 .header__search input {
     width: 500px;
@@ -50,4 +70,5 @@
     height: 100%;
     border: none;
     border-radius: 0;
+    background-color: #3399FF;
 }
