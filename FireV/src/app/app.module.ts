@@ -15,6 +15,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 @NgModule({
   declarations: [
     AppComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -25,7 +26,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage()),
-    ShareModule
+    ShareModule,
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
