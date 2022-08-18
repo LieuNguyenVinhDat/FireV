@@ -20,6 +20,7 @@ const routes: Routes = [
       ),
   },
   { path: 'add-page', loadChildren: () => import('./pages/channel-page/add-page/add-page.module').then(m => m.AddPageModule) },
+  { path: 'play', loadChildren: () => import('./pages/play/play.module').then(m => m.PlayModule) }
 ];
 
 @NgModule({
