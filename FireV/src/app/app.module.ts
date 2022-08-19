@@ -1,3 +1,4 @@
+import { ShareModule } from './modules/share/share.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -10,26 +11,17 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { provideStorage,getStorage } from '@angular/fire/storage';
-import { ChannelComponent } from './components/channel/channel.component';
-import { HomeComponent } from './components/home/home.component';
-import { SubscribeComponent } from './components/subscribe/subscribe.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { authReducer } from './reducers/auth.reducer';
 import { AuthEffects } from './effects/auth.effect';
 
-
+=======
+>>>>>>> d34bf20a9f5780f622a9b41e86cd81902fa82e21
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChannelComponent,
-    HomeComponent,
-    SubscribeComponent,
-    NavbarComponent,
-    SideBarComponent,
 
   ],
   imports: [
@@ -41,13 +33,13 @@ import { AuthEffects } from './effects/auth.effect';
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage()),
+    ShareModule,
     StoreModule.forRoot({
       auth: authReducer
     }, {}),
     EffectsModule.forRoot([
       AuthEffects
     ]),
-
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
