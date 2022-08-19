@@ -11,6 +11,11 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { authReducer } from './reducers/auth.reducer';
+import { AuthEffects } from './effects/auth.effect';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +32,12 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage()),
     ShareModule,
+    StoreModule.forRoot({
+      auth: authReducer
+    }, {}),
+    EffectsModule.forRoot([
+      AuthEffects
+    ]),
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
