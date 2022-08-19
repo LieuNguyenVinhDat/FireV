@@ -12,12 +12,11 @@
     background: white;
 }
 
+
 .header__left {
     display: flex;
     align-items: center;
-    //padding-left: 40px;
-    flex-wrap: wrap;
-    flex-direction: row;
+    padding-left: 15px;
 
 }
 
@@ -25,7 +24,7 @@
     width: 100px;
     margin-right: 30px;
     margin-top: 10px;
-    //margin-left: 40px;
+    margin-left: 30px;
 }
 
 .header i {
@@ -44,8 +43,7 @@
 
 .header__icons {
     display: flex;
-    flex-direction: row;
-    font-weight: 600;
+  flex-direction: row;
 }
 
 .rounded-circle {
@@ -61,9 +59,7 @@
 
 .name-user {
     margin-top: 13px;
-    margin-left: 2px;
-    font-size: 15px;
-    font-weight: 600;
+    margin-left: 10px;
 }
 
 .header__search input {
@@ -82,9 +78,7 @@
     border-radius: 55px;
     margin: 0;
     height: 100%;
-    border: none;
-    border-radius: 0;
-    background-color: #3399FF;
+    background-color: white;
 }
 
 .form-control-dark {

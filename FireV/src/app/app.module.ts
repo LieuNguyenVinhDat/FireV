@@ -16,14 +16,14 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { authReducer } from './reducers/auth.reducer';
 import { AuthEffects } from './effects/auth.effect';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
 
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
@@ -39,6 +39,7 @@ import { AuthEffects } from './effects/auth.effect';
     EffectsModule.forRoot([
       AuthEffects
     ]),
+    
   ],
   providers: [
     ScreenTrackingService,UserTrackingService

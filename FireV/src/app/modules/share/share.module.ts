@@ -18,9 +18,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { UpdateComponent } from 'src/app/components/update/update.component';
-
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DiscoverComponent } from 'src/app/components/discover/discover.component';
 import { ViewProfileComponent } from 'src/app/components/view-profile/view-profile.component';
 
@@ -50,7 +47,6 @@ import { ViewProfileComponent } from 'src/app/components/view-profile/view-profi
     MatInputModule,
     FormsModule,
     MatIconModule,
-    BrowserAnimationsModule
   ],
   exports: [
     ChannelComponent,
@@ -65,7 +61,8 @@ import { ViewProfileComponent } from 'src/app/components/view-profile/view-profi
     MatDialogModule,
     MatInputModule,
     FormsModule,
-    UpdateComponent
+    UpdateComponent,
+    
   ],
 })
 export class ShareModule { }
