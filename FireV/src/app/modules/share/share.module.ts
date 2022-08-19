@@ -17,7 +17,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { UpdateComponent } from 'src/app/components/update/update.component'
+import { UpdateComponent } from 'src/app/components/update/update.component';
+
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DiscoverComponent } from 'src/app/components/discover/discover.component';
+import { ViewProfileComponent } from 'src/app/components/view-profile/view-profile.component';
+
 @NgModule({
   declarations: [
     ChannelComponent,
@@ -26,7 +32,10 @@ import { UpdateComponent } from 'src/app/components/update/update.component'
     NavbarComponent,
     AddVideoComponent,
     SideBarComponent,
-    UpdateComponent
+    UpdateComponent,
+    ViewProfileComponent,
+    DiscoverComponent,
+  
   ],
   imports: [CommonModule,
     MatFormFieldModule,
@@ -41,6 +50,7 @@ import { UpdateComponent } from 'src/app/components/update/update.component'
     MatInputModule,
     FormsModule,
     MatIconModule,
+    BrowserAnimationsModule
   ],
   exports: [
     ChannelComponent,
