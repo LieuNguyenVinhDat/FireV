@@ -16,8 +16,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { authReducer } from './reducers/auth.reducer';
 import { AuthEffects } from './effects/auth.effect';
 
-=======
->>>>>>> d34bf20a9f5780f622a9b41e86cd81902fa82e21
 
 @NgModule({
   declarations: [
