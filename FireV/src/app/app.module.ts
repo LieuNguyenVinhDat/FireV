@@ -12,18 +12,16 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { provideStorage,getStorage } from '@angular/fire/storage';
-import { ViewProfileComponent } from './components/view-profile/view-profile.component';
-import { DiscoverComponent } from './components/discover/discover.component';
-import { MatDialogModule} from '@angular/material/dialog';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule} from '@angular/material/form-field';
-import { MatInputModule} from '@angular/material/input';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { authReducer } from './reducers/auth.reducer';
+import { AuthEffects } from './effects/auth.effect';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ViewProfileComponent,
-    DiscoverComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -35,12 +33,12 @@ import { MatInputModule} from '@angular/material/input';
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage()),
     ShareModule,
-    HttpClientModule,
-    MatDialogModule,
-    MatInputModule,
-    MatFormFieldModule,
-    BrowserAnimationsModule,
-    FormsModule,
+    StoreModule.forRoot({
+      auth: authReducer
+    }, {}),
+    EffectsModule.forRoot([
+      AuthEffects
+    ]),
   ],
   providers: [
     ScreenTrackingService,UserTrackingService

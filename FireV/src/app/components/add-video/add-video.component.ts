@@ -15,4 +15,5 @@ export class AddVideoComponent implements OnInit {
   back(){
     this.router.navigate(['/channel_page']);
   }
+
 }
