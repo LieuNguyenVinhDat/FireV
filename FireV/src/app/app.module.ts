@@ -15,6 +15,11 @@ import { HomeComponent } from './components/home/home.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { authReducer } from './reducers/auth.reducer';
+import { AuthEffects } from './effects/auth.effect';
+
 
 
 @NgModule({
@@ -25,6 +30,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
     SubscribeComponent,
     NavbarComponent,
     SideBarComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -35,6 +41,12 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage()),
+    StoreModule.forRoot({
+      auth: authReducer
+    }, {}),
+    EffectsModule.forRoot([
+      AuthEffects
+    ]),
 
   ],
   providers: [
