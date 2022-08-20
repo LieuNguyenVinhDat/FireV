@@ -19,8 +19,6 @@ export class NavbarComponent implements OnInit {
       if (user) {
         this.displayName = user.displayName;
         this.photoURL = user.photoURL;
-        const uid = user.uid;
-
         // ...
       } else {
         this.displayName = "";
