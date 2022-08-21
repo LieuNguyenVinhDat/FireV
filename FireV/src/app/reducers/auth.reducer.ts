@@ -16,7 +16,7 @@ export const authReducer = createReducer(
       isAuthenticated: true,
       idToken: action.idToken,
     };
-    console.log(action.type);
+    console.log(action.type,newState.idToken);
     return newState;
   }),
 

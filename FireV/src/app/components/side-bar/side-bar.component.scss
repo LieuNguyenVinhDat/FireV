@@ -1,7 +1,8 @@
-.body-pro{
-  width: 100%;
-  display: inline-flex;
+.body-pro {
+    width: 100%;
+    display: inline-flex;
 }
+
 .mainBody {
     height: calc(100vh - 70px);
     width: 150px;
@@ -9,9 +10,10 @@
     overflow: hidden;
     float: left;
 }
-.main-content{
-  width: 90%;
-  background-color: aquamarine;
+
+.main-content {
+    width: 90%;
+    background-color: aquamarine;
 }
 
 .sidebar {
