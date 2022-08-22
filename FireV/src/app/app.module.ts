@@ -1,7 +1,8 @@
-import { ShareModule } from './modules/share/share.module';
+import { ShareModule } from 'src/app/modules/share/share.module';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -15,14 +16,14 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { authReducer } from './reducers/auth.reducer';
 import { AuthEffects } from './effects/auth.effect';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
 
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
@@ -38,6 +39,7 @@ import { AuthEffects } from './effects/auth.effect';
     EffectsModule.forRoot([
       AuthEffects
     ]),
+    
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
