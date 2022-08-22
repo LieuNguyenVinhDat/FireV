@@ -8,7 +8,6 @@ import { ShareModule } from 'src/app/modules/share/share.module';
   declarations: [
     ChannelPageComponent,
 
-
   ],
   imports: [
     CommonModule,
