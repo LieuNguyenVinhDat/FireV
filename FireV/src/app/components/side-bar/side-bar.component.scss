@@ -1,7 +1,16 @@
+.body-pro{
+  width: 100%;
+  display: inline-flex;
+}
 .mainBody {
     height: calc(100vh - 70px);
     display: flex;
     overflow: hidden;
+    float: left;
+}
+.main-content{
+  width: 90%;
+  background-color: aquamarine;
 }
 
 .sidebar {
