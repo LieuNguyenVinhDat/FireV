@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PlayRoutingModule } from './play-routing.module';
-import { PlayComponent } from './play.component';
-
+import { PopularRoutingModule } from './popular-routing.module';
+import { PopularComponent } from './popular.component';
 import { ShareModule } from 'src/app/modules/share/share.module';
 
 @NgModule({
   declarations: [
-    PlayComponent
+    PopularComponent
   ],
   imports: [
     CommonModule,
-    PlayRoutingModule,
+    PopularRoutingModule,
     ShareModule
   ]
 })
-export class PlayModule { }
+export class PopularModule { }
