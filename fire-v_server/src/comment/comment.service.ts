@@ -1,32 +1,24 @@
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from "@nestjs/mongoose";
-import { Model } from "mongoose";
-import {
-    Comment,
-    CommentDocument,
-  
-  } from "src/schemas/comment.schema";
-  import { Comment as CommentModel } from "../schemas/comment.schema";
+
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { Comment, CommentDocument } from 'src/schemas/comment.schema';
 
 @Injectable()
 export class CommentService {
-    constructor(
-        @InjectModel(Comment.name) private CommentModel: Model<CommentDocument>){}
-      async create(comment: CommentModel) {
-       
-        let createComment = new this.CommentModel(comment);
-        await createComment.save();
-      }
-      async findAll() {
-        return await this.CommentModel.find().exec();
-      }
-      async findByUserId(fromUserId: string, toUserID: string) {
-        return await this.CommentModel
-          .find({
-            $or: [
-              { user: fromUserId, toUser: toUserID },
-            ],
-          })
-          .exec();
-}
-}
+    constructor(@InjectModel(Comment.name) private commentModel: Model<CommentDocument>) {}
+
+    async creatComment(comment: Comment) {
+        let creatComment = new this.commentModel(comment);
+        await creatComment.save();
+    }
+
+    async findAllComment() {
+        return await this.commentModel.find();
+    }
+
+    async deleteComment(id: string) {
+        return await this.commentModel.findByIdAndDelete(id);
+    }
+}   
+
