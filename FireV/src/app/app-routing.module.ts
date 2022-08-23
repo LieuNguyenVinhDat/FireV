@@ -1,4 +1,3 @@
-import { ChannelComponent } from './components/channel/channel.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -9,6 +8,7 @@ const routes: Routes = [
     path: 'channel_page',
     loadChildren: () => import('./pages/channel-page/channel-page.module').then((m) => m.ChannelPageModule)
   },
+  { path: 'popular', loadChildren: () => import('./pages/popular/popular.module').then(m => m.PopularModule) },
   {
     path: '**',
     pathMatch: 'full',
