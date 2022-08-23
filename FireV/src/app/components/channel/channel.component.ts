@@ -24,7 +24,7 @@ export class ChannelComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-    // this.dialog.open(UpdateComponent);
+    //this.dialog.open(UpdateComponent);
 
   // openDialogUpdate() {
   //   const dialogRef = this.dialog.open(UpdateComponent, {
