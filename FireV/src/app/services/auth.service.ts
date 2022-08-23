@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { Auth, GoogleAuthProvider, signInWithPopup, signOut } from '@angular/fire/auth';
 import { from } from 'rxjs';
 
@@ -9,7 +8,6 @@ import { from } from 'rxjs';
 export class AuthService {
   constructor(private auth: Auth) { }
   login() {
-    // return from(signInWithPopup(this.auth, new GoogleAuthProvider()));
     return from(
       new Promise<string>(async (resolve, reject) => {
         try {
@@ -27,8 +25,6 @@ export class AuthService {
   }
 
   async logOut(){
-    // this.auth.signOut();
-    // alert("log out successfull")
     return from(
       new Promise<string>(async (resolve, reject) => {
         try {
