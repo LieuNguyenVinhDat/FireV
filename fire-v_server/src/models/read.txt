@@ -1,1 +1,0 @@
-add model ở đây( nếu cần còn k thì dùng class của model trong schema)

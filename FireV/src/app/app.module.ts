@@ -1,7 +1,8 @@
-import { ShareModule } from './modules/share/share.module';
+import { ShareModule } from 'src/app/modules/share/share.module';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -11,13 +12,18 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { provideStorage,getStorage } from '@angular/fire/storage';
-
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { authReducer } from './reducers/auth.reducer';
+import { AuthEffects } from './effects/auth.effect';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
 
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
@@ -27,6 +33,13 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage()),
     ShareModule,
+    StoreModule.forRoot({
+      auth: authReducer
+    }, {}),
+    EffectsModule.forRoot([
+      AuthEffects
+    ]),
+    
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
