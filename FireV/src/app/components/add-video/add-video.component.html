@@ -1,14 +1,8 @@
 <div class="add-video">
-  <!-- <div class="add-main">
-  </div> -->
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Đăng tải video của bạn</h5>
-      <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a> -->
-      <form>
+      <form >
         <label for="title">Tiêu đề (bắt buộc)</label>
         <input
           type="text"
@@ -26,18 +20,32 @@
         <div class="row">
           <div class="col-4">
             <label for="video-file">Chọn video </label>
-            <input type="file" class="form-control-file" id="video-file" />
+            <input
+              type="file"
+              class="form-control-file"
+              id="video-file"
+              (change)="selectVideo($event)"
+              accept="video/*"
+            />
           </div>
           <div class="col-4">
             <label for="image-file">Chọn ảnh </label>
-            <input type="file" class="form-control-file" id="image-file" />
+            <input
+              type="file"
+              class="form-control-file"
+              id="image-file"
+              (change)="selectFile($event)"
+              accept="image/*"
+            />
           </div>
         </div>
         <label for="title-content">Chủ đề tùy chỉnh:</label>
-        <br>
+        <br />
         <select
           class="form-select form-select-lg mb-3"
-          aria-label=".form-select-lg example" id="title-content">
+          aria-label=".form-select-lg example"
+          id="title-content"
+        >
           <option selected>Chọn chủ đề</option>
           <option value="1">Âm nhạc</option>
           <option value="2">Phim</option>
@@ -46,29 +54,35 @@
           <option value="2">Khoa học</option>
           <option value="3">Xã hội</option>
         </select>
-        <br>
+        <br />
         <label for="state">Chế độ hiển thị</label>
-        <br>
+        <br />
         <select
           class="form-select form-select-lg mb-3"
-          aria-label=".form-select-lg example" id="state">
+          aria-label=".form-select-lg example"
+          id="state"
+        >
           <option value="0" selected>Công khai</option>
           <option value="1">Không công khai</option>
         </select>
-        <br>
+        <br />
         <label for="age">Đối tượng người xem</label>
-        <br>
+        <br />
         <select
           class="form-select form-select-lg mb-3"
-          aria-label=".form-select-lg example" id="age">
+          aria-label=".form-select-lg example"
+          id="age"
+        >
           <option value="0" selected>Dành cho trẻ em hoặc dưới 18 tuổi</option>
           <option value="1">Trên 18 tuổi</option>
         </select>
         <div class="row">
-            <button type="submit" class="btn btn-primary">
-              Đăng tải
-            </button>
-            <button type="button" class="btn btn-outline-danger" (click)="back()">Hủy</button>
+          <button type="submit" class="btn btn-primary" (click)="addData()">
+            Đăng tải
+          </button>
+          <button type="button" class="btn btn-outline-danger" (click)="back()">
+            Hủy
+          </button>
         </div>
       </form>
     </div>

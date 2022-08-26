@@ -6,6 +6,7 @@ export interface Video {
     author: User;
     comment: Comment[];
     url: string;
+    image_url: string;
     description: string;
     like: number;
     dislike: number;

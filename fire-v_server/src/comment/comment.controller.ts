@@ -5,6 +5,7 @@ import { CommentService } from './comment.service';
 @Controller('comment')
 export class CommentController {
 
+
   constructor(private readonly commentService: CommentService) {}
   @Post('create')
   public async create(@Body() comment: Comment){

@@ -12,7 +12,7 @@ import { Video } from 'src/app/models/note.model';
 })
 export class ChannelComponent implements OnInit {
   form!: FormGroup;
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private router: Router) {
    }
 
   ngOnInit(): void {
@@ -35,7 +35,7 @@ export class ChannelComponent implements OnInit {
   //   });
   // }
 
-  add(){
-    // this.router.navigate(['/add-page']);
+  addVideoChange(){
+    this.router.navigate(['add_page']);
   }
 }
