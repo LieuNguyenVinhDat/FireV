@@ -20,6 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { UpdateComponent } from 'src/app/components/update/update.component';
 import { DiscoverComponent } from 'src/app/components/discover/discover.component';
 import { ViewProfileComponent } from 'src/app/components/view-profile/view-profile.component';
+import { SettingComponent } from 'src/app/components/setting/setting.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ViewProfileComponent } from 'src/app/components/view-profile/view-profi
     UpdateComponent,
     ViewProfileComponent,
     DiscoverComponent,
+    SettingComponent
 
   ],
   imports: [CommonModule,

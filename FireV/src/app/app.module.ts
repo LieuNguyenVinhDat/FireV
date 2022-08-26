@@ -22,12 +22,11 @@ import { AuthEffects } from './effects/auth.effect';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { uploadImageReducer } from './reducers/uploadImage.reducer';
 import { uploadVideoReducer } from './reducers/uploadVideo.reducer';
-import { SettingComponent } from './components/setting/setting.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SettingComponent,
+
 
   ],
   imports: [
