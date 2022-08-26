@@ -4,7 +4,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { TooltipPosition } from '@angular/material/tooltip';
 import { UpdateComponent } from 'src/app/components/update/update.component';
 import {MatDialog} from '@angular/material/dialog';
-import { Video } from 'src/app/models/note.model';
+import { Video } from 'src/app/models/video.models';
+
 @Component({
   selector: 'app-channel',
   templateUrl: './channel.component.html',
@@ -12,18 +13,18 @@ import { Video } from 'src/app/models/note.model';
 })
 export class ChannelComponent implements OnInit {
   form!: FormGroup;
-  constructor(public dialog: MatDialog, private router: Router) {
+  constructor(public dialog: MatDialog,private router: Router) {
    }
 
   ngOnInit(): void {
   }
-  openDialog1() {
-    const dialogRef = this.dialog.open(UpdateComponent);
+  // openDialog1() {
+  //   const dialogRef = this.dialog.open(UpdateComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
     //this.dialog.open(UpdateComponent);
 
   // openDialogUpdate() {
@@ -35,7 +36,7 @@ export class ChannelComponent implements OnInit {
   //   });
   // }
 
-  addVideoChange(){
-    this.router.navigate(['add_page']);
-  }
+  openAddPage(){
+    this.router.navigateByUrl('/channel_page/add');
+ }
 }

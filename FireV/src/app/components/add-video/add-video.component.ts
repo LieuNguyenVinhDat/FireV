@@ -17,6 +17,9 @@ export class AddVideoComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  add(){
+    this.router.navigate(['/channel_page']);
+  }
   back(){
     this.router.navigate(['/channel_page']);
   }

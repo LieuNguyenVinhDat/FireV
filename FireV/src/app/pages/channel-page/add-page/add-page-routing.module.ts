@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddVideoComponent } from 'src/app/components/add-video/add-video.component';
 import { AddPageComponent } from './add-page.component';
 
-const routes: Routes = [{ path: '', component: AddPageComponent }];
+const routes: Routes = [{ path: '', component: AddVideoComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

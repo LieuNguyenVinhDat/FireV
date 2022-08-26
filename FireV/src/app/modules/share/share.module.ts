@@ -5,7 +5,7 @@ import { ChannelComponent } from 'src/app/components/channel/channel.component';
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
 import { SideBarComponent } from 'src/app/components/side-bar/side-bar.component';
-import { SubscribeComponent } from 'src/app/components/subscribe/subscribe.component';
+
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
@@ -20,19 +20,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { UpdateComponent } from 'src/app/components/update/update.component';
 import { DiscoverComponent } from 'src/app/components/discover/discover.component';
 import { ViewProfileComponent } from 'src/app/components/view-profile/view-profile.component';
+import { SettingComponent } from 'src/app/components/setting/setting.component';
 
 @NgModule({
   declarations: [
     ChannelComponent,
     HomeComponent,
-    SubscribeComponent,
+
     NavbarComponent,
     AddVideoComponent,
     SideBarComponent,
     UpdateComponent,
     ViewProfileComponent,
     DiscoverComponent,
-  
+    SettingComponent
+
   ],
   imports: [CommonModule,
     MatFormFieldModule,
@@ -51,7 +53,7 @@ import { ViewProfileComponent } from 'src/app/components/view-profile/view-profi
   exports: [
     ChannelComponent,
     HomeComponent,
-    SubscribeComponent,
+
     NavbarComponent,
     AddVideoComponent,
     SideBarComponent,
@@ -62,7 +64,7 @@ import { ViewProfileComponent } from 'src/app/components/view-profile/view-profi
     MatInputModule,
     FormsModule,
     UpdateComponent,
-    
+
   ],
 })
 export class ShareModule { }
