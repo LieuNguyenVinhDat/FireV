@@ -1,10 +1,23 @@
-export interface Video{
-  id: string;
-  tieude: string;
-  mota: string;
-  video:string;
-  image:string;
-  status: boolean;
-  dateCreated: string;
+import { User } from "./user.model";
+import { Comment } from "./comment.model";
 
+export interface Video{
+    _id : string;
+    title: string;
+    description: string;
+    photoURL: string;
+    url: string;
+    likes: number;
+    dislikes: number;
+    views: number;
+    owner: User;
+    createdAt: string;
+    hour: number;
+    minute: number;
+    second: number;
+    day: number;
+    comments: Comment[];
+    isHidden: boolean;
+    hashtags: string[];
+    likeList: User[];                    
 }
