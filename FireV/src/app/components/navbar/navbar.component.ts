@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { AuthState } from 'src/app/states/auth.state';
 import * as AuthActions from 'src/app/actions/auth.action';
 import { getAuth, onAuthStateChanged } from '@angular/fire/auth';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   displayName : string | null = "";
   photoURL : string | null = "";
   constructor(private store: Store <{ auth: AuthState }>,
+    private router: Router
     ) {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
@@ -30,7 +31,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  
+
   login() {
     this.store.dispatch(AuthActions.login());
   }
@@ -38,6 +39,7 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.store.dispatch(AuthActions.logOut());
     this.isShown = !this.isShown;
+    this.router.navigate(['']);
   }
 
   toggleShow() {
@@ -47,5 +49,13 @@ export class NavbarComponent implements OnInit {
     console.log(e);
     e.target.src = "../../../../../../../assets/images/user_crack.png";
   }
-
+  home() {
+    this.router.navigate(['']);
+  }
+  channel_page(){
+    this.router.navigate(['/channel_page']);
+  }
+  openAddPage(){
+    this.router.navigateByUrl('/channel_page/add');
+ }
 }

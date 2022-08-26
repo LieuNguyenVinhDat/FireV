@@ -5,7 +5,7 @@ import { ChannelComponent } from 'src/app/components/channel/channel.component';
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
 import { SideBarComponent } from 'src/app/components/side-bar/side-bar.component';
-import { SubscribeComponent } from 'src/app/components/subscribe/subscribe.component';
+
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
@@ -25,14 +25,14 @@ import { ViewProfileComponent } from 'src/app/components/view-profile/view-profi
   declarations: [
     ChannelComponent,
     HomeComponent,
-    SubscribeComponent,
+
     NavbarComponent,
     AddVideoComponent,
     SideBarComponent,
     UpdateComponent,
     ViewProfileComponent,
     DiscoverComponent,
-  
+
   ],
   imports: [CommonModule,
     MatFormFieldModule,
@@ -51,7 +51,7 @@ import { ViewProfileComponent } from 'src/app/components/view-profile/view-profi
   exports: [
     ChannelComponent,
     HomeComponent,
-    SubscribeComponent,
+
     NavbarComponent,
     AddVideoComponent,
     SideBarComponent,
@@ -62,7 +62,7 @@ import { ViewProfileComponent } from 'src/app/components/view-profile/view-profi
     MatInputModule,
     FormsModule,
     UpdateComponent,
-    
+
   ],
 })
 export class ShareModule { }
