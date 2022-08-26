@@ -1,3 +1,6 @@
+import { UploadVideoEffect } from './effects/uploadVideo.effect';
+import { UploadImageEffect } from './effects/uploadImage.effect';
+import { uploadImage } from './actions/uploadImage.action';
 import { ShareModule } from 'src/app/modules/share/share.module';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,12 +20,15 @@ import { EffectsModule } from '@ngrx/effects';
 import { authReducer } from './reducers/auth.reducer';
 import { AuthEffects } from './effects/auth.effect';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { uploadImageReducer } from './reducers/uploadImage.reducer';
+import { uploadVideoReducer } from './reducers/uploadVideo.reducer';
 @NgModule({
   declarations: [
     AppComponent,
 
   ],
   imports: [
+    HttpClientModule,
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
@@ -34,12 +40,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     provideStorage(() => getStorage()),
     ShareModule,
     StoreModule.forRoot({
-      auth: authReducer
+      auth: authReducer,
+      uploadImage: uploadImageReducer,
+      uploadVideo: uploadVideoReducer
     }, {}),
     EffectsModule.forRoot([
-      AuthEffects
+      AuthEffects,
+      UploadImageEffect,
+      UploadVideoEffect
     ]),
-    
+
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
