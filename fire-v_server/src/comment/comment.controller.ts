@@ -5,25 +5,21 @@ import { CommentService } from './comment.service';
 @Controller('comment')
 export class CommentController {
 
-  constructor(private readonly commentService: CommentService) {}
+  constructor(private readonly commentService: CommentService) { }
   @Post('create')
-  public async create(@Body() comment: Comment){
+  public async create(@Body() comment: Comment) {
     return await this.commentService.creatComment(comment);
   }
 
   @Get('all')
-  public async findAll(){
+  public async findAll() {
     return await this.commentService.findAllComment();
   }
 
   @Delete()
-  public async delete(@Body() id: string){
+  public async delete(@Body() id: string) {
     return await this.commentService.deleteComment(id);
   }
 }
-@Delete('delete')
-public async delete(@Query('from')fromId:string, @Query('to')toId:string){
-    return await this.commentService.findByUserId(fromId,toId);
-}
 
-}
+
