@@ -10,6 +10,7 @@ import databaseConfig from './configs/database.config';
 import { UserController } from './user/user.controller';
 import { CommentModule } from './comment/comment.module';
 
+
 @Module({
   imports: [
     MongooseModule.forRoot(databaseConfig().appDatabase),
@@ -17,6 +18,7 @@ import { CommentModule } from './comment/comment.module';
     VideoModule, 
     CommentModule, 
     UploadModule
+
   ],
   controllers: [AppController],
   providers: [AppService],
