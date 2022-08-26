@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', loadChildren: () => import('./pages/home-pages/home-pages.module').then(m => m.HomePagesModule) },
-  { path: 'play', loadChildren: () => import('./pages/play/play.module').then(m => m.PlayModule) },
   {
-    path: 'channel_page',
-    loadChildren: () => import('./pages/channel-page/channel-page.module').then((m) => m.ChannelPageModule)
+    path: 'intro',
+    loadChildren: () => import('./pages/intro-page/intro-page.module').then(m => m.IntroPageModule)
   },
-  { path: 'popular', loadChildren: () => import('./pages/popular/popular.module').then(m => m.PopularModule) },
+  {
+    path: '',
+    loadChildren: () => import('./pages/layout/layout.module').then(m => m.LayoutModule)
+  },
   {
     path: '**',
     pathMatch: 'full',

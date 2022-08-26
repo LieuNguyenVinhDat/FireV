@@ -1,0 +1,68 @@
+<!-- <div class="header">
+    <div class="header__left">
+        <i id="menu" class="material-icons">menu</i>
+        <img src="../../../assets/images/LogoFirerV.png" alt="" />
+    </div>
+
+    <div class="header__search">
+        <form action="">
+            <input type="text" placeholder="Search" />
+            <button class="button-search"><i class="material-icons">search</i></button>
+        </form>
+    </div>
+
+    <div class="dropdown">
+        <div class="row">
+
+            <div class=" header__icons" *ngIf="displayName">
+                <img src="{{photoURL}}" class="rounded-circle" alt="Avatar" />
+            </div>
+            <p class="name-user">{{displayName}}</p>
+        </div>
+        <div class="noidung_dropdown">
+            <a href="#" (click)="logout()">Logout</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="button-add">
+        <button (click)="login()" class="btn btn-danger" *ngIf="!displayName">Login</button>
+    </div>
+</div> -->
+<nav class="flex-div">
+    <div class="nav-left flex-div">
+        <!-- <i id="menu" class="material-icons" style="cursor:pointer;">menu</i> -->
+        <img (click)="home()" src="../../../assets/images/LogoFirerV.png" alt="logo icon" class="logo">
+    </div>
+    <div class="nav-middle flex-div">
+        <div class="search-box flex-div">
+            <input type="text" placeholder="Search">
+            <i class="material-icons" style="cursor:pointer;">search</i>
+            <!-- <img src="../../../assets/images/search.png" alt="search-icon"> -->
+        </div>
+        <!-- <img src="../../../assets/images/voice-search.png" alt="" class="mic-icon"> -->
+    </div>
+    <div class="nav-right flex-div">
+        <div class="action">
+            <div class="profile" *ngIf="!displayName">
+                <img src="../../../../../../../assets/images/user.png" alt="ava" class="user-icon" (click)="login()">
+            </div>
+            <div class="profile" *ngIf="displayName">
+                <img (error)="handleError($event)" src="{{photoURL}}" alt="ava" class="user-icon" (click)="toggleShow()">
+            </div>
+            <div class="menu" *ngIf="isShown" (click)="toggleShow()">
+                <h3>{{displayName}}<br><span>Special Guys</span></h3>
+                <ul>
+                    <!-- <li ><img src="../../../assets/images/user.png" alt=""><a>Your Channel</a></li>
+                    <li ><img src="../../../assets/images/edit.png" alt=""><a (click)="toggleShow()">Add Video</a></li>
+                    <li><img src="../../../assets/images/inbox.png" alt=""><a>Inbox</a></li>
+                    <li><img src="../../../assets/images/setting.png" alt=""><a>Settings</a></li>
+                    <li><img src="../../../assets/images/help.png" alt=""><a>Help</a></li> -->
+                    <li (click)="logout()"><img src="../../../assets/images/logout.png" alt=""><a>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

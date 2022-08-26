@@ -25,6 +25,9 @@ export class Video {
     url: string;
 
     @Prop()
+    image_url: string;
+
+    @Prop()
     description: string;
 
     @Prop({ default: 0})

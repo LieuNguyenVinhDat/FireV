@@ -1,0 +1,73 @@
+.add-video {
+    position: relative;
+    top: -10px;
+    // left: 0px;
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    padding-left: 5.5rem;
+    // padding-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+}
+
+.card-title {
+    font-weight: 700;
+}
+
+.card {
+    width: 90%;
+    margin-left: 1rem;
+}
+
+.form-control {
+    background-color: #EEEEEE;
+}
+
+textarea {
+    height: 150px;
+}
+
+.form-control-file[type=file]::file-selector-button {
+    border: 2px solid #0099FF;
+    padding: .2em .4em;
+    border-radius: .2em;
+    background-color: #0099FF;
+    transition: 1s;
+    border-radius: 5px;
+    color: white;
+}
+
+.row {
+    margin-top: 10px;
+}
+
+.col-4 {
+    display: inline-flex;
+}
+
+.col-4 label {
+    width: 110px;
+}
+
+#title-content {
+    background-color: #EEEEEE;
+    min-width: 20%;
+    border-radius: 4px;
+}
+
+#state {
+    background-color: #EEEEEE;
+    min-width: 10%;
+    border-radius: 4px;
+}
+
+#age {
+    background-color: #EEEEEE;
+    min-width: 20%;
+    border-radius: 4px;
+}
+
+button {
+    margin-left: 1%;
+}
