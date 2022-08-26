@@ -19,5 +19,6 @@ export interface Video{
     comments: Comment[];
     isHidden: boolean;
     hashtags: string[];
-    likeList: User[];                    
+    likeList: User[]; 
+    type: string;                  
 }

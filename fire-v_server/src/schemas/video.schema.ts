@@ -34,6 +34,10 @@ export class Video {
     @Prop()
     image_url: string;
 
+    @IsNotEmpty()
+    @Prop()
+    type: string;
+
     @Prop({ default: 0})
     like: number;
 
