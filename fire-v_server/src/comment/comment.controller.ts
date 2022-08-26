@@ -5,6 +5,7 @@ import { CommentService } from './comment.service';
 @Controller('comment')
 export class CommentController {
 
+
   constructor(private readonly commentService: CommentService) {}
   @Post('create')
   public async create(@Body() comment: Comment){
@@ -20,10 +21,4 @@ export class CommentController {
   public async delete(@Body() id: string){
     return await this.commentService.deleteComment(id);
   }
-}
-@Delete('delete')
-public async delete(@Query('from')fromId:string, @Query('to')toId:string){
-    return await this.commentService.findByUserId(fromId,toId);
-}
-
 }

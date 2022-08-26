@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class SideBarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Routerprivate router: Router) { }
 
   ngOnInit(): void {
   }
@@ -22,5 +22,8 @@ export class SideBarComponent implements OnInit {
   }
   Subscribe(){
     this.router.navigate(['/channel_page/view_profile']);
+  }
+  addVideoChange(){
+    this.router.navigate(['my']);
   }
 }

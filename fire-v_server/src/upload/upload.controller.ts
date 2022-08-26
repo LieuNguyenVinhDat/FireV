@@ -7,7 +7,7 @@ import { extname } from 'path';
 export class UploadController {
   constructor(private readonly uploadService: UploadService) {}
   @Post('add')
-  @UseInterceptors(FileInterceptor('file', {
+  @UseInterceptors(FileInterceptor('video', {
     storage: diskStorage({
       destination: 'src/uploads/videos',
       filename: (req, file, cb) => {
@@ -18,7 +18,8 @@ export class UploadController {
       }
     })
   }))
-  async upload( @UploadedFile() file) {
-    console.log(file)
+   upload(@UploadedFile() file){
+    // console.log(file as any);
+    return  file;
   }
 }
