@@ -4,11 +4,11 @@
 }
 .popular{
     margin: 0;
-    padding: 0;
+    padding-top: 1%;
+    background: rgb(250, 247, 247);
 }
 .popular-menu{
     padding-left: 10%;
-    background: 0000;
 }
 .name-icon{
     display: flex;
@@ -17,21 +17,29 @@
     padding-left: 10%;
 }
 .name-icon img{
-    width: 8ex;
+    width: 10ex;
 }
 .name-icon p{
-    font-size: 3.5ex;
+    font-size: 3ex;
     padding-left: 1ex;
 }
 .menu{
-    padding-left: 20%;
+    padding-left: 8%;
     margin-top: 4%;
-    font-size: 2.2ex;
+    font-size: 2.5ex;
     align-items: center;
     margin-top: 0.5%;
+    padding-top: 2.5%;
+    padding-bottom: 1%;
+}
+.menu a:hover{
+    color:rgb(234, 158, 158);
+}
+.pointer {
+    cursor: pointer;
 }
 .menu .music{
-    margin-left: 2ex;
+    margin-left: 2ex;   
 }
 .menu .game{
     margin-left: 2ex;
@@ -39,8 +47,9 @@
 .menu .film{
     margin-left: 2ex;
 }
+ 
 .video-list{
-    background: #adb1adad;
+    background: rgb(235, 228, 228);
     flex-basis: 150%; 
 }
 .video-list .side-video-list{
@@ -83,7 +92,6 @@
     width: 100%;
     float: right;
   }
-
   @media (max-width: 100ex) {
     app-side-bar{
         display: none;
