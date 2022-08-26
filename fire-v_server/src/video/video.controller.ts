@@ -1,13 +1,13 @@
 import { Controller, Get, Post, Body, Query, Delete } from '@nestjs/common';
-
-import { Video } from 'src/models/video.model';
+import { AuthService } from 'src/middleware/auth/auth.service';
+import { Video } from 'src/schemas/video.schema';
 import { VideoService } from './video.service';
 
 @Controller('video')
 export class VideoController {
-  constructor(private readonly videoService: VideoService) {}
+  constructor(private readonly videoService: VideoService,private authService: AuthService) {}
   @Post('/send')
-  public async createUser(@Body()video:Video){
+  public async createVideoInfo(@Body()video:Video){
       return await this.videoService.creatVideo(video);
   }
 

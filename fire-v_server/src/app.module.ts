@@ -1,5 +1,5 @@
 import { UploadModule } from './upload/upload.module';
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
@@ -9,6 +9,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import databaseConfig from './configs/database.config';
 import { UserController } from './user/user.controller';
 import { CommentModule } from './comment/comment.module';
+import { AuthService } from './middleware/auth/auth.service';
+import { AuthMiddleware } from './middleware/auth/auth.middleware';
 
 
 @Module({
@@ -21,6 +23,29 @@ import { CommentModule } from './comment/comment.module';
 
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, AuthService],
 })
-export class AppModule {}
+export class AppModule implements NestModule{
+  configure(consumer: MiddlewareConsumer) {
+    throw new Error('Method not implemented.');
+  }
+  // configure(consumer: MiddlewareConsumer) {
+  //   consumer
+  //     .apply(AuthMiddleware).exclude(
+  //       { path: 'video/all', method: RequestMethod.GET },
+  //       // { path: 'video/all/thumb', method: RequestMethod.GET },
+  //       // { path: 'video/all/vid', method: RequestMethod.GET },
+  //       // { path: 'video/one/', method: RequestMethod.GET },
+  //       // { path: 'video/entire/', method: RequestMethod.GET },
+  //       // { path: 'video/views/', method: RequestMethod.PUT },
+  //       'video/all/(.*)',
+  //       'video/one/(.*)',
+  //       'video/entire/(.*)',
+  //       'video/views/(.*)'
+  //     ).forRoutes(
+  //       {
+  //         path: '*',
+  //         method: RequestMethod.ALL
+  //       })
+  // }
+}

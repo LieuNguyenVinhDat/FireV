@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { User } from "./user.schema";
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
+import {IsNotEmpty } from 'class-validator';
 
 
 @Schema({
@@ -9,26 +10,29 @@ import { Document } from 'mongoose';
 
 export class Video {
 
+    @IsNotEmpty()
     @Prop()
     title: string;
+
+    @Prop({ default: "" })
+    description: string;
 
     @Prop({default: 0})
     views: number;
 
-    @Prop()
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'users' })
     author: User;
 
-    @Prop()
-    comment: Comment[]
+    @Prop([String])
+    hashtags: string[];
 
+    @IsNotEmpty()
     @Prop()
     url: string;
 
+    @IsNotEmpty()
     @Prop()
     image_url: string;
-
-    @Prop()
-    description: string;
 
     @Prop({ default: 0})
     like: number;
@@ -36,8 +40,15 @@ export class Video {
     @Prop({ default: 0})
     dislike: number;
 
-    @Prop()
-    tags: string[];
+    @Prop({default: false})
+    isHidden: boolean;
+
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'users' })
+    likeList: User[];
+
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'users' })
+    dislikeList: User[];
+
 }
 export type VideoDocument = Video & Document;
 export const VideoSchema = SchemaFactory.createForClass(Video);

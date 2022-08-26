@@ -1,35 +1,38 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
+import { UserDocument } from 'src/schemas/user.schema';
 
 import {
     Video,
     VideoDocument,
-  
-  } from "src/schemas/video.schema";
-  import { Video as VideoModel } from "../models/video.model";
+
+} from "src/schemas/video.schema";
 
 @Injectable()
 export class VideoService {
-    constructor(@InjectModel(Video.name)private videoModel: Model<VideoDocument>){}
+    constructor(
+        @InjectModel('video') private videoModel: Model<VideoDocument>,
+        @InjectModel('user') private userModel: Model<UserDocument>
+    ) { }
 
-    async creatVideo(video: VideoModel){
+    async creatVideo(video: Video) {
         let creatVideo = new this.videoModel(video);
         await creatVideo.save();
     }
 
-    async findByVideoId(id:string){
+    async findByVideoId(id: string) {
         return await this.videoModel.findById('id');
     }
 
-    async findAllVideo(){
+    async findAllVideo() {
         return await this.videoModel.find();
     }
 
-    async deleteVideo(id:string){
+    async deleteVideo(id: string) {
         return await this.videoModel.findByIdAndDelete(id);
     }
-    async delete(id:string){
+    async delete(id: string) {
         return await this.videoModel.deleteMany();
     }
 
