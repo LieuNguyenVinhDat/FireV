@@ -5,15 +5,15 @@ import { AddVideoService } from "../services/add-video.service";
 import * as VideoActions from "../actions/video.action";
 import { from, switchMap, of, map, catchError } from 'rxjs';
 @Injectable()
-export class UploadVideoEffect {
+export class VideoEffect {
   constructor(private actions$: Actions, private addVideoService: AddVideoService) {}
   uploadVideo$ = createEffect(() =>
     this.actions$.pipe(
       ofType(VideoActions.createVideo),
       switchMap((action) => {
-        return this.addVideoService.createVideo(action.videos);
+        return this.addVideoService.createVideo(action.video,action.idToken);
       }),
-      map((video: any) => VideoActions.createVideoSucceed({ video })),
+      map((video) => VideoActions.createVideoSucceed({ video })),
       catchError((error) => of(VideoActions.createVideoFailed({ error: error })))
     ));
 }

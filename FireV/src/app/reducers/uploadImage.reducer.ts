@@ -6,7 +6,7 @@ const initialState: UploadImageState = {
   fileUp: <File>{},
   filepath: '',
   error: '',
-  isSuccess: true,
+  isSuccess: false,
   isLoading: false,
 };
 
@@ -18,7 +18,7 @@ export const uploadImageReducer = createReducer(
       isLoading: true,
       fileUp: action.files,
     };
-    console.log(newState);
+    console.log(action.type,newState);
     return newState;
   }),
   on(UploadImageActions.uploadImageSucceed, (state, action) => {
@@ -29,7 +29,7 @@ export const uploadImageReducer = createReducer(
       isLoading: false,
       isSuccess: true,
     };
-    console.log(newState);
+    console.log(action.type);
     return newState;
   }),
   on(UploadImageActions.uploadImageFailed, (state, { error }) => ({

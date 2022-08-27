@@ -11,11 +11,11 @@ const routes: Routes = [
         loadChildren: () => import('./home-pages/home-pages.module').then(m => m.HomePagesModule)
       },
       {
-        path: 'channel/add',
+        path: 'add',
         loadChildren: () => import('./add-page/add-page.module').then(m => m.AddPageModule)
       },
       {
-        path: 'channel/view',
+        path: 'view',
         loadChildren: () => import('./view-profile-page/view-profile-page.module').then(m => m.ViewProfilePageModule)
       },
       {

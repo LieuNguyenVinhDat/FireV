@@ -7,7 +7,7 @@ async function bootstrap() {
   admin.initializeApp({
     credential: admin.credential.cert("./key.json")
   });
-  const sv = 5000;
+  const sv = 3000;
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors();

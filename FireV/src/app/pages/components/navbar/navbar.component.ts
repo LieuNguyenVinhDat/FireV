@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AuthState } from 'src/app/states/auth.state';
 import * as AuthActions from 'src/app/actions/auth.action';
-import { getAuth, onAuthStateChanged } from '@angular/fire/auth';
+import { Auth, getAuth, onAuthStateChanged } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
@@ -11,26 +11,36 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   isShown: boolean = false; // hidden by default
-  displayName : string | null = "";
-  photoURL : string | null = "";
-  constructor(private store: Store <{ auth: AuthState }>,
-    private router: Router
-    ) {
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
+
+  displayName: string | null = "";
+  photoURL: string | null = "";
+
+  token: string = "";
+  idToken$ = this.store.select((state) => state.auth.idToken)
+
+  constructor(private store: Store<{ auth: AuthState }>,
+    private router: Router,
+    private auth: Auth
+  ) {
+
+    onAuthStateChanged(this.auth, (user) => {
       if (user) {
+        this.idToken$.subscribe((value) => {
+          if (value) {
+            this.token = value;
+            this.store.dispatch(AuthActions.createUser({ idToken: this.token }))
+          }
+        })
         this.displayName = user.displayName;
         this.photoURL = user.photoURL;
-        // ...
       } else {
         this.displayName = "";
         this.photoURL = "";
       }
-
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   login() {
     this.store.dispatch(AuthActions.login());

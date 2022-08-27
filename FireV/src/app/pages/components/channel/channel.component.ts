@@ -35,6 +35,6 @@ export class ChannelComponent implements OnInit {
   }
 
   openAddPage(){
-    this.router.navigateByUrl('channel/add');
+    this.router.navigateByUrl('add');
   }
 }

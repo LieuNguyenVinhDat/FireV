@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Video } from '../models/video.model';
@@ -9,8 +9,9 @@ import { Video } from '../models/video.model';
 export class AddVideoService {
 
   constructor(private http: HttpClient) { }
-  createVideo(video: Video): Observable<Video[]>{
-    return this.http.post<Video[]>(`http://127.0.0.1:5000/video/send`, video);
+  createVideo(video: any,idToken: string){
+    console.log(video)
+    return this.http.post<Video>("http://127.0.0.1:3000/video/send", video,{ headers: new HttpHeaders({ 'Authorization': `${idToken}` }) });
   }
   // getVideo(): Observable<Video[]>{
   //   return this.http.get<Video[]>(`http://127.0.0.1:5000/video/`);

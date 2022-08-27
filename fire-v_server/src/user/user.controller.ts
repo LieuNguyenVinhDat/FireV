@@ -1,20 +1,20 @@
-import { Controller, Get, Post, Body,Query, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Query, Delete, Req } from '@nestjs/common';
 import { User } from 'src/schemas/user.schema';
 import { UserService } from './user.service';
 
 @Controller('user')
 export class UserController {
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) { }
 
-  @Post('/send')
-  public async createUser(@Body()user: User){
-      return await this.userService.createUser(user);
+  @Post('send')
+  public async createUser(@Req() req: any) {
+    return await this.userService.create(req.user);
   }
 
   @Get('/')
-  public async getUserById(@Query(`id`) id: string){
+  public async getUserById(@Query(`id`) id: string) {
     console.log(id);
-      return await this.userService.findByUserId(id);
+    return await this.userService.findByUserId(id);
   }
 
   @Get('all')

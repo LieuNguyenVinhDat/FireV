@@ -13,7 +13,7 @@ export class AppComponent {
 
   constructor(public router: Router) {
     this.currentRoute$.subscribe(value => {
-      console.log(value);
+      // console.log(value);
     })
   }
 }

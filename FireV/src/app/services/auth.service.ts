@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, GoogleAuthProvider, signInWithPopup, signOut } from '@angular/fire/auth';
+import { Auth, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from '@angular/fire/auth';
 import { from } from 'rxjs';
 
 @Injectable({
@@ -24,18 +24,34 @@ export class AuthService {
     );
   }
 
-  async logOut(){
+  async logOut() {
     return from(
       new Promise<string>(async (resolve, reject) => {
         try {
-        await signOut(this.auth)
-        resolve("log out successfull");
+          await signOut(this.auth)
+          resolve("log out successfull");
         }
         catch {
           reject('Can not login with Google');
         }
       })
     );
+  }
+
+  getIdToken() {
+    return from(new Promise<string>(async (resolve, reject) => {
+      try {
+        onAuthStateChanged(this.auth, async (user) => {
+          if (user) {
+            let user = getAuth().currentUser;
+            let idToken = await user!.getIdToken(true)
+            resolve(idToken);
+          }
+        })
+      } catch (err) {
+        reject(err);
+      }
+    }));
   }
 }
 

@@ -2,6 +2,7 @@ import { createReducer, on } from "@ngrx/store";
 import { Video } from "../models/video.model";
 import { VideoState } from "../states/video.state";
 import * as VideoActions from "../actions/video.action";
+import { sample } from "rxjs";
 
 
 const initialState: VideoState = {
@@ -15,25 +16,29 @@ const initialState: VideoState = {
 
 export const videoReducer = createReducer(
     initialState,
-    on(VideoActions.createVideo, (state) => {
+    on(VideoActions.createVideo, (state,action) => {
+      console.log(action.type)
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
+        idToken: action.idToken,
+        videoLoad: action.video
       }
     }),
     on(VideoActions.createVideoSucceed, (state, action) => {
      let newState = {
         ...state,
-        videoLoad: action.video,
         isLoading: false,
+        videoLoad : <Video>{}
      }
-      console.log(newState);
+      console.log(action.type,action.video);
       return newState;
     }),
-    on(VideoActions.createVideoFailed, (state, {error}) => {
+    on(VideoActions.createVideoFailed, (state,action) => {
+      console.log(action.error)
       return {
         ...state,
-        error: error,
+        error: action.error,
         isLoading: false
       }
     })

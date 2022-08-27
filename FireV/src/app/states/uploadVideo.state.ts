@@ -5,4 +5,5 @@ export interface UploadVideoState{
   error: string;
   isSuccess: boolean;
   isLoading: boolean;
+  idToken: string;
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { UserDocument } from 'src/schemas/user.schema';
+import { User, UserDocument } from 'src/schemas/user.schema';
 
 import {
     Video,
@@ -12,13 +12,22 @@ import {
 @Injectable()
 export class VideoService {
     constructor(
-        @InjectModel('video') private videoModel: Model<VideoDocument>,
-        @InjectModel('user') private userModel: Model<UserDocument>
+        @InjectModel(Video.name) private videoModel: Model<VideoDocument>,
+        @InjectModel(User.name) private userModel: Model<UserDocument>
     ) { }
 
-    async creatVideo(video: Video) {
-        let creatVideo = new this.videoModel(video);
-        await creatVideo.save();
+    async creatVideo(video: Video, user: any) {
+        try {
+            const newVideo = new this.videoModel(video);
+            const user_Indb = await this.userModel.findOne({
+                email: user.email,
+            }).exec();
+            newVideo.author = user_Indb._id;
+            const _video = await newVideo.save();
+            return _video;
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     async findByVideoId(id: string) {

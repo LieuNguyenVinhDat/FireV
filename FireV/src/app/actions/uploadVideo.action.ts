@@ -2,7 +2,7 @@ import { createAction, props } from "@ngrx/store";
 
 export const uploadVideos = createAction(
   '[UploadVideo] Upload Videos',
-   props<{ files: File }>()
+   props<{ files: File , idToken: string }>()
 );
 export const uploadVideoSucceed = createAction(
   '[UploadVideo] Upload Videos Succeed',

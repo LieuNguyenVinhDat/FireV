@@ -5,7 +5,7 @@ export interface Video{
     _id : string;
     title: string;
     description: string;
-    photoURL: string;
+    image_url: string;
     url: string;
     likes: number;
     dislikes: number;

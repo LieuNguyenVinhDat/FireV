@@ -21,12 +21,12 @@ import { UpdateComponent } from 'src/app/pages/components/update/update.componen
 import { DiscoverComponent } from 'src/app/pages/components/discover/discover.component';
 import { ViewProfileComponent } from 'src/app/pages/components/view-profile/view-profile.component';
 import { IntroComponent } from 'src/app/pages/components/intro/intro.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
     ChannelComponent,
     HomeComponent,
-
     NavbarComponent,
     AddVideoComponent,
     SideBarComponent,
@@ -36,7 +36,8 @@ import { IntroComponent } from 'src/app/pages/components/intro/intro.component';
     IntroComponent,
 
   ],
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -50,6 +51,7 @@ import { IntroComponent } from 'src/app/pages/components/intro/intro.component';
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
+    MatSnackBarModule
   ],
   exports: [
     ChannelComponent,
@@ -65,6 +67,7 @@ import { IntroComponent } from 'src/app/pages/components/intro/intro.component';
     MatInputModule,
     FormsModule,
     UpdateComponent,
+    MatSnackBarModule,
 
 
   ],

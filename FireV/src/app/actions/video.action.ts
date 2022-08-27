@@ -3,7 +3,7 @@ import { Video } from "../models/video.model";
 
 export const createVideo = createAction(
   '[Video] Create Video',
-  props<{ videos: any }>()
+  props<{ idToken: string, video: Video }>()
 )
 export const createVideoSucceed = createAction(
   '[Video] Create Video Succeed',

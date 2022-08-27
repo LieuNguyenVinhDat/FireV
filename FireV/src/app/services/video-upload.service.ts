@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class VideoUploadService {
   constructor(private http: HttpClient) {}
-  addVideo(file: any) {
-    return this.http.post(`http://127.0.0.1:5000/upload/add`, file);
+  addVideo(file: any,idToken:string) {
+    return this.http.post(`http://127.0.0.1:3000/upload/add`, file,{ headers: new HttpHeaders({ 'Authorization': `${idToken}` }) });
   }
 }

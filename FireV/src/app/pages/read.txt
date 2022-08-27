@@ -1,2 +1,0 @@
-chỗ tạo ra các module tượng trưng cho các page: home, play, channel, upload video, livestream, (lazy-loading page nha)
-các trang nào chỉ có các component dùng cho chính trang đó thì tạo trong trang đó một cái folder component để sử dụng trong chính trang đó
