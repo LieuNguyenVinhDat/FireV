@@ -49,6 +49,8 @@ import { uploadVideoReducer } from './reducers/uploadVideo.reducer';
       UploadImageEffect,
       UploadVideoEffect
     ]),
+    FormsModule,
+    ReactiveFormsModule,
 
   ],
   providers: [

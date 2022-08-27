@@ -2,11 +2,11 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Đăng tải video của bạn</h5>
-      <form>
+      <form [formGroup]="form" (submit)="addData()">
         <label for="title">Tiêu đề (bắt buộc)</label>
-        <input type="text" class="form-control" id="title" placeholder="Tiêu đề của bạn?" />
+        <input type="text" class="form-control" id="title" placeholder="Tiêu đề của bạn?" formControlName="title">
         <label for="description">Mô tả</label>
-        <textarea type="text" class="form-control" id="description" placeholder="Miêu tả của bạn?"></textarea>
+        <textarea type="text" class="form-control" id="description" placeholder="Miêu tả của bạn?" formControlName="description"></textarea>
         <div class="row">
           <div class="col-4">
             <label for="video-file">Chọn video </label>
@@ -19,33 +19,46 @@
               accept="image/*" />
           </div>
         </div>
+
         <label for="title-content">Chủ đề tùy chỉnh:</label>
         <br />
-        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="title-content">
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="title-content" formControlName="type">
           <option selected>Chọn chủ đề</option>
-          <option value="1">Âm nhạc</option>
-          <option value="2">Phim</option>
-          <option value="3">Thể Thao</option>
-          <option value="1">Học tập</option>
-          <option value="2">Khoa học</option>
-          <option value="3">Xã hội</option>
+          <option value="Âm nhạc">Âm nhạc</option>
+          <option value="Phim">Phim</option>
+          <option value="Thể thao">Thể Thao</option>
+          <option value="Học tập">Học tập</option>
+          <option value="Khoa học">Khoa học</option>
+          <option value="Xã hội">Xã hội</option>
         </select>
         <br />
         <label for="state">Chế độ hiển thị</label>
         <br />
-        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="state">
-          <option value="0" selected>Công khai</option>
-          <option value="1">Không công khai</option>
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="state" formControlName="isHidden">
+          <option value="true" selected>Công khai</option>
+          <option value="false">Không công khai</option>
         </select>
         <br />
         <label for="age">Đối tượng người xem</label>
         <br />
-        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="age">
-          <option value="0" selected>Dành cho trẻ em hoặc dưới 18 tuổi</option>
-          <option value="1">Trên 18 tuổi</option>
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="age" formControlName="hashtags">
+          <option value="Dành cho trẻ em hoặc dưới 18 tuổi" selected>Dành cho trẻ em hoặc dưới 18 tuổi</option>
+          <option value="Trên 18 tuổi">Trên 18 tuổi</option>
         </select>
+        <div class="progress">
+          <div
+          class="progress-bar progress-bar-info"
+          role="progressbar"
+          attr.aria-valuenow="{{ progressUp }}"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          [ngStyle]="{ width: progressUp + '%' }"
+          >
+          {{ progressUp }}%
+        </div>
+        </div>
         <div class="row">
-          <button type="submit" class="btn btn-primary" (click)="addData()">
+          <button type="submit" class="btn btn-primary">
             Đăng tải
           </button>
           <button type="button" class="btn btn-outline-danger" (click)="backToChannel()">

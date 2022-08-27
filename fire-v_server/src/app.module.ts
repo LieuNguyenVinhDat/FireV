@@ -27,7 +27,7 @@ import { AuthMiddleware } from './middleware/auth/auth.middleware';
 })
 export class AppModule implements NestModule{
   configure(consumer: MiddlewareConsumer) {
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.');
   }
   // configure(consumer: MiddlewareConsumer) {
   //   consumer
