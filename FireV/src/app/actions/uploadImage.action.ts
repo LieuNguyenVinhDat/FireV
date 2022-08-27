@@ -6,7 +6,7 @@ export const uploadImage = createAction(
 );
 export const uploadImageSucceed = createAction(
   '[UploadImage] Upload Image Succeed',
-  props<{ filepath: string }>()
+  props<{ filepath: string}>()
 );
 export const uploadImageFailed = createAction(
   '[UploadImage] Upload Image Failed',

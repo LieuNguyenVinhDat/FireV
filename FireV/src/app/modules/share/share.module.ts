@@ -8,7 +8,7 @@ import { SideBarComponent } from 'src/app/pages/components/side-bar/side-bar.com
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -48,6 +48,7 @@ import { IntroComponent } from 'src/app/pages/components/intro/intro.component';
     MatTooltipModule,
     MatInputModule,
     FormsModule,
+    ReactiveFormsModule,
     MatIconModule,
   ],
   exports: [
@@ -64,7 +65,7 @@ import { IntroComponent } from 'src/app/pages/components/intro/intro.component';
     MatInputModule,
     FormsModule,
     UpdateComponent,
- 
+
 
   ],
 })
