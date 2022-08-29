@@ -27,24 +27,24 @@ import { AuthMiddleware } from './middleware/auth/auth.middleware';
 })
 export class AppModule implements NestModule{
   configure(consumer: MiddlewareConsumer) {
-    // consumer
-    //   .apply(AuthMiddleware)
-    //   .exclude(
-    //     { path: 'video/all', method: RequestMethod.GET },
-    //     { path: 'video?id', method: RequestMethod.GET },
-    //   //   // { path: 'video/all/vid', method: RequestMethod.GET },
-    //   //   // { path: 'video/one/', method: RequestMethod.GET },
-    //   //   // { path: 'video/entire/', method: RequestMethod.GET },
-    //   //   // { path: 'video/views/', method: RequestMethod.PUT },
-    //   //   'video/all/(.*)',
-    //   //   'video/one/(.*)',
-    //   //   'video/entire/(.*)',
-    //     'video/play?id=(.*)'
-    //   )
-    //   .forRoutes(
-    //     {
-    //       path: '*',
-    //       method: RequestMethod.ALL
-    //     })
+    consumer
+      .apply(AuthMiddleware)
+      // .exclude(
+      //   { path: 'video/all', method: RequestMethod.GET },
+      //   // { path: 'video/all/thumb', method: RequestMethod.GET },
+      //   // { path: 'video/all/vid', method: RequestMethod.GET },
+      //   // { path: 'video/one/', method: RequestMethod.GET },
+      //   // { path: 'video/entire/', method: RequestMethod.GET },
+      //   // { path: 'video/views/', method: RequestMethod.PUT },
+      //   'video/all/(.*)',
+      //   'video/one/(.*)',
+      //   'video/entire/(.*)',
+      //   'video/views/(.*)'
+      // )
+      .forRoutes(
+        {
+          path: '*',
+          method: RequestMethod.ALL
+        })
   }
 }

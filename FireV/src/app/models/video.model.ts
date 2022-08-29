@@ -10,7 +10,11 @@ export interface Video{
     likes: number;
     dislikes: number;
     views: number;
+<<<<<<< HEAD
     author: User;
+=======
+    owner: User;
+>>>>>>> 98b5689088397cb4c757f0c351468177aa35c7b4
     createdAt: string;
     hour: number;
     minute: number;
@@ -19,6 +23,12 @@ export interface Video{
     comments: Comment[];
     isHidden: boolean;
     hashtags: string[];
+<<<<<<< HEAD
     likeList: User[];
     type: string;
 }
+=======
+    likeList: User[]; 
+    type: string;                  
+}
+>>>>>>> 98b5689088397cb4c757f0c351468177aa35c7b4
