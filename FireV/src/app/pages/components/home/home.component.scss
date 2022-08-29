@@ -1,44 +1,93 @@
-.main {
-  position: relative;
-  left: 120px;
-  top: -10px;
-  width: 100vw;
+@media only screen and (max-width: 100%) {
+  .home-body {
+    background-color: #283655;
+  }
+  .home_content{
+    // background-color:#25223e;
+    // opacity: 0.5;
+    position: absolute;
+    background-color: #283655;
+  }
+  .card{
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 100%) {
+  /* For mobile phones: */
+  .col {width: 100%;}
 }
 
-.home-body {
-  // background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
-  background: #355C7D;
-  background: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
-  background: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
-  padding-left: 1.8rem;
-  padding-top: 1rem;
-  padding-right: 1.5rem;
-  padding-bottom: 1.5rem;
-}
 
-.home-content {
-  height: 60px;
-  overflow: hidden;
-}
+
+
+// .mainInner {
+//   display: table;
+//   height: 100%;
+//   width: 100%;
+//   text-align: center;
+// }
+
+// .mainInner div {
+//   display: table-cell;
+//   vertical-align: middle;
+//   font-size: 4em;
+//   font-weight: bold;
+//   letter-spacing: 1.25px;
+// }
+// .home_content .text{
+//     color: #1d1b31;
+// }
+// .main {
+//   position: relative;
+//   padding-left: 10rem;
+//   top: -25px;
+//   width: 100vw;
+// }
+
+// .home-body {
+//   // background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+//   // background: #355C7D;
+//   // background: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
+//   // background: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
+//   top: 1%;
+//   background-color:#25223e;
+//   padding-left: 5rem;
+//   padding-top: 1rem;
+//   padding-right: 1.5rem;
+//   padding-bottom: 1.5rem;
+//   left: 240px;
+// }
+
+// .home-content {
+//   height: 60px;
+//   overflow: hidden;
+// }
 
 .home-main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding-left: 12.5rem;
+//   background: #bdc3c7;  /* fallback for old browsers */
+// background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+// background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+background-color: #909fac;  /* fallback for old browsers */
+
+
+
 }
 
 .filters {
   width: 100%;
-  height: 100%;
-  // background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
-  background: #355C7D;
-  background: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
-  background: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
-  // border-bottom: 1px solid #dbdbdb;
+  height: 50px;
   display: flex;
   align-items: center;
-  padding-left: 3%;
-  padding-top: 1%;
+  padding-left: 13rem;
+  padding-top: 1rem;
+  background-color: #909fac;
+
+
 }
 
 .filters::-webkit-scrollbar {
@@ -49,22 +98,21 @@
   flex: 0 0 auto;
   padding: 8px 25px;
   border-radius: 55px;
-  background: #f0f0f0;
+  background: #283655;
   border: 1px solid white;
   text-transform: capitalize;
   margin-right: 25px;
   color: white;
   font-size: 15px;
   cursor: pointer;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+
 
 }
 
-
 .filter-options.active {
   color: #fff;
-  background: black;
-  font-weight: bolder;
+  background: rgb(183, 183, 183);
+  // font-weight: bolder;
 }
 
 .filter-options:hover {
@@ -73,23 +121,9 @@
 }
 
 .filter-options:not(.active) {
-  background-image: linear-gradient(to right top,
-      #9853ec,
-      #ea5c65,
-      #ea5c65,
-      #eb6564,
-      #ec6d65,
-      #ed7564,
-      #ee7c64,
-      #ef8464,
-      #f08d63,
-      #f09664,
-      #f09f65,
-      #f0a867);
-  color: white !important;
-  opacity: 100% !important;
-  font-weight: bolder;
-
+  background: #ededed;
+  color: rgb(138, 138, 138);
+  // font-weight: bolder;
 }
 
 .profile {
@@ -125,6 +159,7 @@
 
 .col {
   margin-top: 1rem;
+  margin-left: 3rem;
 }
 
 .button-add {
@@ -152,7 +187,7 @@
 }
 
 .col-md-auto {
-  margin-top: 1rem;
+  padding-top: 1rem;
 }
 
 .card {
@@ -172,12 +207,10 @@
   margin-left: 3%;
   font-size: 15;
   font-weight: 600;
-
 }
 
 .card-text {
   width: 100%;
-
   margin-left: 3%;
   font-size: 12;
   margin-top: -10px;
@@ -187,13 +220,7 @@
 
 .card-body {
   width: 100%;
-  margin-top: -15;
-  height: 100px;
-}
-
-.title-v {
-  margin-bottom: 5px;
-
+  height: 100%;
 }
 
 #edit {
@@ -206,7 +233,7 @@
 
 .rounded-circle {
   background-image: radial-gradient(circle, #456BD9, #456BD9 50%, transparent 50%);
-  height: 2.7em;
+  height: 2.5em;
   width: 5em;
   object-fit: cover;
 }
