@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "firev-74ed2": {
+      "hosting": {
+        "FireV": [
+          "firev-74ed2"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "firev-74ed2"
+  }
+}
