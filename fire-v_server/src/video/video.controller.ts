@@ -35,10 +35,5 @@ export class VideoController {
     return await this.videoService.findAllVideo();
   }
 
-  @Delete('delete')
-  public async deleteVideo(@Query(`id`) id: string){
-    return await this.videoService.deleteVideo(id);
-  }
-  
-  //
+
 }

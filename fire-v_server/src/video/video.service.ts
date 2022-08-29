@@ -31,7 +31,7 @@ export class VideoService {
     }
 
     async findByVideoId(id: string) {
-<<<<<<< HEAD
+
         return await this.videoModel.findById(id)
         .populate('author', 'email avatar _id name subscribers',this.userModel);
     }
@@ -41,20 +41,7 @@ export class VideoService {
         .find({})
         .select('-description -likeList -dislikeList -__v -like -dislike -hashtags -url') 
         .populate('author', 'email avatar _id name subscribers',this.userModel);
-=======
-        return await this.videoModel.findById('id');
     }
 
-    async findAllVideo() {
-        return await this.videoModel.find();
->>>>>>> 98b5689088397cb4c757f0c351468177aa35c7b4
-    }
-
-    async deleteVideo(id: string) {
-        return await this.videoModel.findByIdAndDelete(id);
-    }
-    async delete(id: string) {
-        return await this.videoModel.deleteMany();
-    }
 
 }
