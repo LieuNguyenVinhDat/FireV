@@ -10,7 +10,6 @@ export class SideBarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    
   }
  
   goToPopularPage(){
@@ -22,6 +21,4 @@ export class SideBarComponent implements OnInit {
   goToChannelPage(){
     this.router.navigateByUrl('channel');
   }
-
-  
 }

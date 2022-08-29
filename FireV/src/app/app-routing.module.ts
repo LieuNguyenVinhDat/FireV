@@ -2,10 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   loadChildren: () => import('./pages/intro-page/intro-page.module').then(m => m.IntroPageModule)
-  // },
   {
     path: 'intro',
     loadChildren: () => import('./pages/intro-page/intro-page.module').then(m => m.IntroPageModule)
