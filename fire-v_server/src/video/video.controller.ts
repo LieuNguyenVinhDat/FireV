@@ -39,4 +39,6 @@ export class VideoController {
   public async deleteVideo(@Query(`id`) id: string){
     return await this.videoService.deleteVideo(id);
   }
+  
+  //
 }
