@@ -13,22 +13,25 @@
       </div>
       <div class="home-body">
         <div class="home-main">
-            <div class="col-md-auto">
-              <div class="card">
+            <div class="col-md-auto"  *ngFor="let video of Video$ | async">
+              <div class="card" (click)="playVideo(video._id)">
                 <div class="image-title">
-                  <img class="card-img-top" src="https://o.vdoc.vn/data/image/2020/07/07/hinh-nen-son-tung-mtp-9.jpg"
+                  <img class="card-img-top" src="{{ video.image_url }}"
                     alt="Card image cap">
                 </div>
                 <div class="card-body">
                   <div class="row">
                     <div class=".col">
-                      <img src="https://i.pinimg.com/564x/86/13/93/861393c6ea721f5965d44f104cdf3cfb.jpg"
-                        class="rounded-circle" alt="Avatar" id="avatar" />
+                      <img src="{{ video.author.avatar }}"
+                      class="rounded-circle"
+                      alt="Avatar"
+                      id="avatar"
+                      (error)="handleError($event)" />
                     </div>
                     <div class=".col">
                       <div class="title-v">
-                        <p class="card-title">CÓ CHẮC YÊU LÀ ĐÂY | OFFICIAL MUSIC VIDEO</p>
-                        <p class="card-text">Sơn Tùng M-TP Official <br>154 T lượt xem
+                        <p class="card-title">{{ video.title }}</p>
+                        <p class="card-text">{{ video.author.name }} <br>{{ video.views }} lượt xem
                       </div>
                     </div>
 
@@ -36,145 +39,7 @@
                 </div>
               </div>
             </div>
-    
-            <div class="col-md-auto">
-              <div class="card">
-                <div class="image-title">
-                  <img class="card-img-top" src="https://o.vdoc.vn/data/image/2020/07/07/hinh-nen-son-tung-mtp-9.jpg"
-                    alt="Card image cap">
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class=".col">
-                      <img src="https://i.pinimg.com/564x/86/13/93/861393c6ea721f5965d44f104cdf3cfb.jpg"
-                        class="rounded-circle" alt="Avatar" id="avatar" />
-                    </div>
-                    <div class=".col">
-                      <div class="title-v">
-                        <p class="card-title">CÓ CHẮC YÊU LÀ ĐÂY | OFFICIAL MUSIC VIDEO</p>
-                        <p class="card-text">Sơn Tùng M-TP Official <br>154 T lượt xem
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-auto">
-              <div class="card">
-                <div class="image-title">
-                  <img class="card-img-top" src="https://o.vdoc.vn/data/image/2020/07/07/hinh-nen-son-tung-mtp-9.jpg"
-                    alt="Card image cap">
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class=".col">
-                      <img src="https://i.pinimg.com/564x/86/13/93/861393c6ea721f5965d44f104cdf3cfb.jpg"
-                        class="rounded-circle" alt="Avatar" id="avatar" />
-                    </div>
-                    <div class=".col">
-                      <div class="title-v">
-                        <p class="card-title">CÓ CHẮC YÊU LÀ ĐÂY | OFFICIAL MUSIC VIDEO</p>
-                        <p class="card-text">Sơn Tùng M-TP Official <br>154 T lượt xem
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-auto">
-              <div class="card">
-                <div class="image-title">
-                  <img class="card-img-top" src="https://o.vdoc.vn/data/image/2020/07/07/hinh-nen-son-tung-mtp-9.jpg"
-                    alt="Card image cap">
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class=".col">
-                      <img src="https://i.pinimg.com/564x/86/13/93/861393c6ea721f5965d44f104cdf3cfb.jpg"
-                        class="rounded-circle" alt="Avatar" id="avatar" />
-                    </div>
-                    <div class=".col">
-                      <div class="title-v">
-                        <p class="card-title">CÓ CHẮC YÊU LÀ ĐÂY | OFFICIAL MUSIC VIDEO</p>
-                        <p class="card-text">Sơn Tùng M-TP Official <br>154 T lượt xem
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-auto">
-              <div class="card">
-                <div class="image-title">
-                  <img class="card-img-top" src="https://o.vdoc.vn/data/image/2020/07/07/hinh-nen-son-tung-mtp-9.jpg"
-                    alt="Card image cap">
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class=".col">
-                      <img src="https://i.pinimg.com/564x/86/13/93/861393c6ea721f5965d44f104cdf3cfb.jpg"
-                        class="rounded-circle" alt="Avatar" id="avatar" />
-                    </div>
-                    <div class=".col">
-                      <div class="title-v">
-                        <p class="card-title">CÓ CHẮC YÊU LÀ ĐÂY | OFFICIAL MUSIC VIDEO</p>
-                        <p class="card-text">Sơn Tùng M-TP Official <br>154 T lượt xem
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-auto">
-              <div class="card">
-                <div class="image-title">
-                  <img class="card-img-top" src="https://o.vdoc.vn/data/image/2020/07/07/hinh-nen-son-tung-mtp-9.jpg"
-                    alt="Card image cap">
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class=".col">
-                      <img src="https://i.pinimg.com/564x/86/13/93/861393c6ea721f5965d44f104cdf3cfb.jpg"
-                        class="rounded-circle" alt="Avatar" id="avatar" />
-                    </div>
-                    <div class=".col">
-                      <div class="title-v">
-                        <p class="card-title">CÓ CHẮC YÊU LÀ ĐÂY | OFFICIAL MUSIC VIDEO</p>
-                        <p class="card-text">Sơn Tùng M-TP Official <br>154 T lượt xem
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-auto">
-              <div class="card">
-                <div class="image-title">
-                  <img class="card-img-top" src="https://o.vdoc.vn/data/image/2020/07/07/hinh-nen-son-tung-mtp-9.jpg"
-                    alt="Card image cap">
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class=".col">
-                      <img src="https://i.pinimg.com/564x/86/13/93/861393c6ea721f5965d44f104cdf3cfb.jpg"
-                        class="rounded-circle" alt="Avatar" id="avatar" />
-                    </div>
-                    <div class=".col">
-                      <div class="title-v">
-                        <p class="card-title">CÓ CHẮC YÊU LÀ ĐÂY | OFFICIAL MUSIC VIDEO</p>
-                        <p class="card-text">Sơn Tùng M-TP Official <br>154 T lượt xem
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
+
             <div class="col-md-auto">
               <div class="card">
                 <div class="image-title">
@@ -219,7 +84,145 @@
                   </div>
                 </div>
               </div>
-            </div>   
+            </div>
+
+            <div class="col-md-auto">
+              <div class="card">
+                <div class="image-title">
+                  <img class="card-img-top" src="https://o.vdoc.vn/data/image/2020/07/07/hinh-nen-son-tung-mtp-9.jpg"
+                    alt="Card image cap">
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class=".col">
+                      <img src="https://i.pinimg.com/564x/86/13/93/861393c6ea721f5965d44f104cdf3cfb.jpg"
+                        class="rounded-circle" alt="Avatar" id="avatar" />
+                    </div>
+                    <div class=".col">
+                      <div class="title-v">
+                        <p class="card-title">CÓ CHẮC YÊU LÀ ĐÂY | OFFICIAL MUSIC VIDEO</p>
+                        <p class="card-text">Sơn Tùng M-TP Official <br>154 T lượt xem
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-auto">
+              <div class="card">
+                <div class="image-title">
+                  <img class="card-img-top" src="https://o.vdoc.vn/data/image/2020/07/07/hinh-nen-son-tung-mtp-9.jpg"
+                    alt="Card image cap">
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class=".col">
+                      <img src="https://i.pinimg.com/564x/86/13/93/861393c6ea721f5965d44f104cdf3cfb.jpg"
+                        class="rounded-circle" alt="Avatar" id="avatar" />
+                    </div>
+                    <div class=".col">
+                      <div class="title-v">
+                        <p class="card-title">CÓ CHẮC YÊU LÀ ĐÂY | OFFICIAL MUSIC VIDEO</p>
+                        <p class="card-text">Sơn Tùng M-TP Official <br>154 T lượt xem
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-auto">
+              <div class="card">
+                <div class="image-title">
+                  <img class="card-img-top" src="https://o.vdoc.vn/data/image/2020/07/07/hinh-nen-son-tung-mtp-9.jpg"
+                    alt="Card image cap">
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class=".col">
+                      <img src="https://i.pinimg.com/564x/86/13/93/861393c6ea721f5965d44f104cdf3cfb.jpg"
+                        class="rounded-circle" alt="Avatar" id="avatar" />
+                    </div>
+                    <div class=".col">
+                      <div class="title-v">
+                        <p class="card-title">CÓ CHẮC YÊU LÀ ĐÂY | OFFICIAL MUSIC VIDEO</p>
+                        <p class="card-text">Sơn Tùng M-TP Official <br>154 T lượt xem
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-auto">
+              <div class="card">
+                <div class="image-title">
+                  <img class="card-img-top" src="https://o.vdoc.vn/data/image/2020/07/07/hinh-nen-son-tung-mtp-9.jpg"
+                    alt="Card image cap">
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class=".col">
+                      <img src="https://i.pinimg.com/564x/86/13/93/861393c6ea721f5965d44f104cdf3cfb.jpg"
+                        class="rounded-circle" alt="Avatar" id="avatar" />
+                    </div>
+                    <div class=".col">
+                      <div class="title-v">
+                        <p class="card-title">CÓ CHẮC YÊU LÀ ĐÂY | OFFICIAL MUSIC VIDEO</p>
+                        <p class="card-text">Sơn Tùng M-TP Official <br>154 T lượt xem
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-auto">
+              <div class="card">
+                <div class="image-title">
+                  <img class="card-img-top" src="https://o.vdoc.vn/data/image/2020/07/07/hinh-nen-son-tung-mtp-9.jpg"
+                    alt="Card image cap">
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class=".col">
+                      <img src="https://i.pinimg.com/564x/86/13/93/861393c6ea721f5965d44f104cdf3cfb.jpg"
+                        class="rounded-circle" alt="Avatar" id="avatar" />
+                    </div>
+                    <div class=".col">
+                      <div class="title-v">
+                        <p class="card-title">CÓ CHẮC YÊU LÀ ĐÂY | OFFICIAL MUSIC VIDEO</p>
+                        <p class="card-text">Sơn Tùng M-TP Official <br>154 T lượt xem
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-auto">
+              <div class="card">
+                <div class="image-title">
+                  <img class="card-img-top" src="https://o.vdoc.vn/data/image/2020/07/07/hinh-nen-son-tung-mtp-9.jpg"
+                    alt="Card image cap">
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class=".col">
+                      <img src="https://i.pinimg.com/564x/86/13/93/861393c6ea721f5965d44f104cdf3cfb.jpg"
+                        class="rounded-circle" alt="Avatar" id="avatar" />
+                    </div>
+                    <div class=".col">
+                      <div class="title-v">
+                        <p class="card-title">CÓ CHẮC YÊU LÀ ĐÂY | OFFICIAL MUSIC VIDEO</p>
+                        <p class="card-text">Sơn Tùng M-TP Official <br>154 T lượt xem
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
       </div>

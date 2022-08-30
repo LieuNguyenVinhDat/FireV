@@ -181,7 +181,7 @@ background-color: #909fac;  /* fallback for old browsers */
 }
 
 .card-img-top {
-  width: 19rem;
+  width: 18.5rem;
   height: 180px;
   object-fit: cover;
 }
@@ -191,7 +191,7 @@ background-color: #909fac;  /* fallback for old browsers */
 }
 
 .card {
-  width: 19rem;
+  width: 18.5rem;
   height: 280px;
 }
 
@@ -207,6 +207,7 @@ background-color: #909fac;  /* fallback for old browsers */
   margin-left: 3%;
   font-size: 15;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .card-text {

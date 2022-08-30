@@ -41,5 +41,57 @@ export const videoReducer = createReducer(
         error: action.error,
         isLoading: false
       }
+    }),
+    on(VideoActions.getVideo, (state,action) => {
+      console.log(action.type)
+      return {
+        ...state,
+        isLoading: true,
+      }
+    }),
+    on(VideoActions.getVideoSucceed, (state, action) => {
+      let newState = {
+          ...state,
+          isLoading: false,
+          videoList : action.video
+      }
+        console.log(action.video);
+        return newState;
+    }),
+    on(VideoActions.getVideoFailed, (state,action) => {
+      console.log(action.error,action)
+      return {
+        ...state,
+        error: action.error,
+        isLoading: false
+      }
+    }),
+    on(VideoActions.getVideoById, (state,action) => {
+      console.log(action.id)
+      return {
+        ...state,
+        isLoading: true,
+        _id: action.id
+      }
+    }),
+    on(VideoActions.getVideoByIdSucceed, (state, action) => {
+      let newState = {
+          ...state,
+          isLoading: false,
+          videoLoad : action.video,
+          _id: "",
+      }
+        console.log(action.video);
+        return newState;
+    }),
+    on(VideoActions.getVideoByIdFailed, (state,action) => {
+      console.log(action.error)
+      return {
+        ...state,
+        error: action.error,
+        isLoading: false,
+        _id: ""
+
+      }
     })
 );

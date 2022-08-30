@@ -13,3 +13,26 @@ export const createVideoFailed = createAction(
   '[Video] Create Video Failed',
   props<{ error: string }>()
 );
+export const getVideo = createAction(
+  '[Video] Get Video',
+);
+export const getVideoSucceed = createAction(
+  '[Video] Get Video Succeed',
+  props<{ video: Video[] }>()
+);
+export const getVideoFailed = createAction(
+  '[Video] Get Video Failed',
+  props<{ error: string }>()
+);
+export const getVideoById = createAction(
+  '[Video] Get Video By Id',
+  props<{ id: string }>()
+);
+export const getVideoByIdSucceed = createAction(
+  '[Video] Get Video By Id Succeed',
+  props<{ video: Video }>()
+);
+export const getVideoByIdFailed = createAction(
+  '[Video] Get Video By Id Failed',
+  props<{ error: string }>()
+);

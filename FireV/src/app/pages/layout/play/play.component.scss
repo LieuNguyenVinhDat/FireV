@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 20px;
+    padding-top: 20px;
     background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
     font-family: "Maven Pro", sans-serif;
 }
@@ -151,7 +151,7 @@
     flex: 0 0 auto;
     padding: 8px 25px;
     border-radius: 55px;
-    background: linear-gradient(0.25turn, 
+    background: linear-gradient(0.25turn,
             #ea5c65,
             #ea5c65,
             #eb6564,
@@ -195,7 +195,7 @@
     display: flex;
     align-items: center;
     margin: 5ex 0;
-    margin-top: 1ex; 
+    margin-top: 1ex;
     color: #240303;
 }
 
@@ -212,7 +212,7 @@
     width: 100%;
     padding-top: 1.5ex;
     background: transparent;
-   
+
 }
 
 .old-comment {
@@ -234,7 +234,7 @@
     margin-top: 1.5ex;
     font-weight: bolder;
     color: #000;
-   
+
 }
 
 .old-comment h1 span {
@@ -263,7 +263,7 @@
     justify-content: space-between;
    flex-wrap: wrap;
     display: inline-flex;
-    padding-left: 2ex; 
+    padding-left: 2ex;
 }
 
 .old-comment .acomment-action .sidebar__category span {
