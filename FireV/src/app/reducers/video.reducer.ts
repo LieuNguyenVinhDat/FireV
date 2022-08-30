@@ -41,7 +41,6 @@ export const videoReducer = createReducer(
         error: action.error,
         isLoading: false
       }
-<<<<<<< HEAD
     }),
     on(VideoActions.getVideo, (state,action) => {
       console.log(action.type)
@@ -94,7 +93,5 @@ export const videoReducer = createReducer(
         _id: ""
 
       }
-=======
->>>>>>> 98b5689088397cb4c757f0c351468177aa35c7b4
     })
 );

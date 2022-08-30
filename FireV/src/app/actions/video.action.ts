@@ -13,7 +13,6 @@ export const createVideoFailed = createAction(
   '[Video] Create Video Failed',
   props<{ error: string }>()
 );
-<<<<<<< HEAD
 export const getVideo = createAction(
   '[Video] Get Video',
 );
@@ -37,6 +36,3 @@ export const getVideoByIdFailed = createAction(
   '[Video] Get Video By Id Failed',
   props<{ error: string }>()
 );
-
-=======
->>>>>>> 98b5689088397cb4c757f0c351468177aa35c7b4

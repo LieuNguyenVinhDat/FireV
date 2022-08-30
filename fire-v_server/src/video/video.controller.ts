@@ -34,6 +34,4 @@ export class VideoController {
   public async getAllVideo(){
     return await this.videoService.findAllVideo();
   }
-
-
 }
