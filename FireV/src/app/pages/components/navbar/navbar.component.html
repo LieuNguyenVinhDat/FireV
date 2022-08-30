@@ -38,7 +38,7 @@
     </div>
     <div class="nav-middle flex-div">
         <div class="search-box flex-div">
-            <input type="text" placeholder="Search">
+            <input style="color:white" type="text" placeholder="Search">
             <i class="material-icons" style="cursor:pointer;">search</i>
             <!-- <img src="../../../assets/images/search.png" alt="search-icon"> -->
         </div>
@@ -47,7 +47,7 @@
     <div class="nav-right flex-div">
         <div class="action">
             <div class="profile" *ngIf="!displayName">
-                <img src="../../../../../../../assets/images/user.png" alt="ava" class="user-icon" (click)="login()">
+                <img style="background: white"src="../../../../../../../assets/images/user.png" alt="ava" class="user-icon" (click)="login()">
             </div>
             <div class="profile" *ngIf="displayName">
                 <img (error)="handleError($event)" src="{{photoURL}}" alt="ava" class="user-icon" (click)="toggleShow()">

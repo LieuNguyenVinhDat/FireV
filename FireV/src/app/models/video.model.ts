@@ -7,8 +7,8 @@ export interface Video{
     description: string;
     image_url: string;
     url: string;
-    likes: number;
-    dislikes: number;
+    like: number;
+    dislike: number;
     views: number;
     author: User;
     createdAt: string;
