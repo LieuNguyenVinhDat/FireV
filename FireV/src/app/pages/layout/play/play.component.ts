@@ -23,7 +23,13 @@ export class PlayComponent implements OnInit {
       this.store.dispatch(VideoActions.getVideoById({id : id}));
       this.store.dispatch(VideoActions.getAllExceptId({id : id}));
       // this.store.dispatch(VideoActions.getVideo());
+      const video: Observable<any> = route.queryParams.pipe(map(p => p['video']));
+      video.subscribe(video => {
+        this.store.dispatch(VideoActions.updateViews({id:id, video: video}))
+      });
+
     });
+
    }
 
 
@@ -35,5 +41,6 @@ export class PlayComponent implements OnInit {
     // this.router.navigateByUrl(`/play?id=${id}`);
     window.location.href = `/play?id=${id}`;
   }
+
 
 }

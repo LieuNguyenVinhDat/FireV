@@ -84,4 +84,18 @@ export class VideoEffect {
       )
     )
   );
+  updateViews$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(VideoActions.updateViews),
+      switchMap((action) => {
+        return this.addVideoService.updateViews(action.id, action.video);
+      }),
+      map((video) => {
+        return VideoActions.updateViewsSucceed({ video });
+      }),
+      catchError((error) =>
+        of(VideoActions.updateViewsFailed({ error: error }))
+      )
+    )
+  );
 }

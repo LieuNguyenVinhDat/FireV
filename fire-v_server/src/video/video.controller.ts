@@ -39,4 +39,9 @@ export class VideoController {
   public async getAllExceptId(@Query('id') id: string){
     return await this.videoService.findAllExceptId(id);
   }
+
+  @Put('views/path')
+  public async updateVideo(@Query('id') id: string){
+    return await this.videoService.update(id);
+  }
 }

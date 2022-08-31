@@ -13,19 +13,15 @@
       </div>
       <div class="home-body">
         <div class="home-main">
-            <div class="col-md-auto"  *ngFor="let video of Video$ | async">
-              <div class="card" (click)="playVideo(video._id)">
-                <div class="image-title">
-                  <img class="card-img-top" src="{{ video.image_url }}"
-                    alt="Card image cap">
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class=".col">
-                      <img src="{{ video.author.avatar }}"
-                      class="rounded-circle"
-                      alt="Avatar"
-                      id="avatar"
+          <div class="col-md-auto" *ngFor="let video of Video$ | async">
+            <div class="card" (click)="playVideo(video._id)">
+              <div class="image-title">
+                <img class="card-img-top" src="{{ video.image_url }}" alt="Card image cap">
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class=".col">
+                    <img src="{{ video.author.avatar }}" class="rounded-circle" alt="Avatar" id="avatar"
                       (error)="handleError($event)" />
                     </div>
                     <div class=".col">
