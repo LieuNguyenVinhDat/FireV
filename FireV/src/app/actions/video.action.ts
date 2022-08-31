@@ -36,3 +36,15 @@ export const getVideoByIdFailed = createAction(
   '[Video] Get Video By Id Failed',
   props<{ error: string }>()
 );
+export const getAllExceptId = createAction(
+  '[Video] Get All Except Id',
+  props<{ id: string }>()
+);
+export const getAllExceptIdSucceed = createAction(
+  '[Video] Get All Except Id Succeed',
+  props<{ video: Video[] }>()
+);
+export const getAllExceptIdFailed = createAction(
+  '[Video] Get All Except Id Failed',
+  props<{ error: string }>()
+);

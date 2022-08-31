@@ -19,4 +19,7 @@ export class AddVideoService {
   getVideoByIdDb(id: string): Observable<Video>{
     return this.http.get<Video>(`http://127.0.0.1:3000/video/play?id=`+id);
   }
+  getAllExceptId(id: string): Observable<Video[]>{
+    return this.http.get<Video[]>(`http://127.0.0.1:3000/video/all/except?id=`+id);
+  }
 }
