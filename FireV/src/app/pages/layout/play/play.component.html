@@ -2,7 +2,9 @@
     <div class="play-video">
         <div class="video">
             <video controls autoplay>
-                <source src="../../../assets/videos/video02.mp4" type="video/mp4">
+                <source *ngIf="(playVideo$|async)?.url"
+                src="http://127.0.0.1:3000/video/play/test?path={{(playVideo$ | async)?.url}}" type="video/mp4">
+
             </video>
         </div>
         <!-- <div class="video-container paused" data-volume-level="high">
@@ -87,19 +89,19 @@
             </video>
         </div> -->
         <div>
-            <h1>♬ Playlist lofi chill - bên trên tầng lầu, pháo hồng, lạc chốn hồng trần... - bie music</h1>
+            <h1>{{(playVideo$ | async)?.title}}</h1>
         </div>
         <div class="play-video-info">
             <div class="like-share">
                 <div class="sidebar__category">
                     <i class="material-icons" style="color: #ee2c25" >thumb_up</i>
                     <br />
-                    <span style="color: #240303;;">1.3k</span>
+                    <span style="color: #240303;;">{{(playVideo$ | async)?.like}}</span>
                 </div>
                 <div class="sidebar__category">
                     <i class="material-icons" style="color: #ee2c25" >thumb_down</i>
                     <br />
-                    <span style="color: #240303;;">512</span>
+                    <span style="color: #240303;;">{{(playVideo$ | async)?.dislike}}</span>
                 </div>
                 <div class="sidebar__category">
                     <i class="material-icons" style="color: #ee2c25" >share</i>
@@ -107,19 +109,19 @@
                     <span style="color: #240303;;">Chia sẻ</span>
                 </div>
             </div>
-            <p>37.940 lượt xem &bull; 29 thg 7, 2022</p>
+            <p>{{(playVideo$ | async)?.views}} lượt xem &bull; 29 thg 7, 2022</p>
         </div>
         <hr>
         <div class="plublisher">
-            <img src="../../../assets/images/avatar.png">
+            <img src="{{(playVideo$ | async)?.author?.avatar}}">
             <div>
-                <p>Hieu Nguyen Trung</p>
-                <span>50k Subcribers</span>
+                <p>{{(playVideo$ | async)?.author?.name}}</p>
+                <span>{{(playVideo$ | async)?.author?.subscribers}} người đăng kí</span>
             </div>
             <button type="button">Đăng Ký</button>
         </div>
         <div class="vid-description">
-            <p>♬ Playlist lofi chill - bên trên tầng lầu, pháo hồng, lạc chốn hồng trần... - bie music</p>
+            <p>{{(playVideo$ | async)?.title}}</p>
             <hr>
             <h2>12 Bình luận</h2>
             <div class="add-comment">
@@ -152,6 +154,109 @@
         </div>
     </div>
     <div class="right-sidebar">
+        <div class="side-video-list" *ngFor="let allExceptId of getAllExceptId$ | async" (click)="playVideo(allExceptId._id)">
+            <div class="image">
+                <img src="{{allExceptId.image_url}}">
+            </div>
+            <div class="vid-info">
+                <h1 (click)="playVideo(allExceptId._id)">{{allExceptId.title}}</h1>
+                <p>{{allExceptId.author.name}}</p>
+                <p>{{allExceptId.views}} lượt xem</p>
+                <!-- <p>11 thg 4, 2022</p> -->
+            </div>
+        </div>
+        <!-- <div class="side-video-list">
+            <div class="image">
+                <img src="../../../assets/imge/02.png">
+            </div>
+            <div class="vid-info">
+                <h1>VIETSUB | 11 món BÁNH SOCOLA ngọt ngào chắc ai đó chưa được thử - Mousse socola, DreamDragon,Muffin
+                </h1>
+                <p>21 thg 5, 2022</p>
+            </div>
+        </div>
+        <div class="side-video-list">
+            <div class="image">
+                <img src="../../../assets/imge/03.png">
+            </div>
+            <div class="vid-info">
+                <h1>[MV]雪の華 - 中島 美嘉(Nakashima Mika) Cover by yurisa</h1>
+                <p>24 thg 1, 2020</p>
+            </div>
+        </div>
+        <div class="side-video-list">
+            <div class="image">
+                <img src="../../../assets/imge/04.png">
+            </div>
+            <div class="vid-info">
+                <h1>KO CẦN LÒ | Cách làm MOCHI KEM ĐẬU ĐỎ MATCHA, MOCHI ĐÀO, CREPE NGÀN LỚP DÂU TÂY</h1>
+                <p>14 thg 8, 2022</p>
+            </div>
+        </div>
+        <div class="side-video-list">
+            <div class="image">
+                <img src="../../../assets/imge/05.png">
+            </div>
+            <div class="vid-info">
+                <h1>[Engsub] Easy Cooking Recipes Of Some Easy-To-Make Cakes🍫#4 | Tiktok ASMR Cooking | Amazing Cakes
+                </h1>
+                <p>5 thg 8, 2022</p>
+            </div>
+        </div>
+        <div class="side-video-list">
+            <div class="image">
+                <img src="../../../assets/imge/06.png">
+            </div>
+            <div class="vid-info">
+                <h1>[生活日常ASMR] 💚💚沉浸式制冰拆冰制饮料 ##11 | Douyin</h1>
+                <p>10 thg 4, 2022</p>
+            </div>
+        </div>
+        <div class="side-video-list">
+            <div class="image">
+                <img src="../../../assets/imge/07.png">
+            </div>
+            <div class="vid-info">
+                <h1>Anh không cần biết quá khứ em ngày xưa... Pháo Hồng ~ Nhạc Lofi Chill Hot Tiktok Nghe Cực Buồn</h1>
+                <p>29 thg 7, 2022</p>
+            </div>
+        </div>
+        <div class="side-video-list">
+            <div class="image">
+                <img src="../../../assets/imge/08.png">
+            </div>
+            <div class="vid-info">
+                <h1>*23* | Making Aesthetic Drinks🤤🧊制作高颜值好喝饮品💚✨</h1>
+                <p>15 thg 6, 2022</p>
+            </div>
+        </div>
+        <div class="side-video-list">
+            <div class="image">
+                <img src="../../../assets/imge/09.png">
+            </div>
+            <div class="vid-info">
+                <h1>[Engsub] Easy Cooking Recipes Of Some Easy-To-Make Cakes🍫#14 | </h1>
+                <p>11 thg 3, 2022</p>
+            </div>
+        </div>
+        <div class="side-video-list">
+            <div class="image">
+                <img src="../../../assets/imge/10.png">
+            </div>
+            <div class="vid-info">
+                <h1>⬛🍓Black Strawberry Latte🍓⬛ 🎨Gallery Cafe🎨 cafe vlog / ASMR 【4K】 카페 브이로그 카페 알바</h1>
+                <p>25 thg 9, 2022</p>
+            </div>
+        </div>
+        <div class="side-video-list">
+            <div class="image">
+                <img src="../../../assets/imge/11.png">
+            </div>
+            <div class="vid-info">
+                <h1>[Nhạc Chill Us-Uk] Những Bài Hát Tiếng Anh "Cực Chill" Siêu Gây Nghiện_#33 💯</h1>
+                <p>1 thg 3, 2022</p>
+            </div>
+        </div>
         <div class="side-video-list">
             <div class="image">
                 <img src="../../../assets/imge/01.png">
@@ -252,107 +357,6 @@
                 <h1>[Nhạc Chill Us-Uk] Những Bài Hát Tiếng Anh "Cực Chill" Siêu Gây Nghiện_#33 💯</h1>
                 <p>1 thg 3, 2022</p>
             </div>
-        </div>
-        <div class="side-video-list">
-            <div class="image">
-                <img src="../../../assets/imge/01.png">
-            </div>
-            <div class="vid-info">
-                <h1>tiktok đam mỹ Conan part2</h1>
-                <p>11 thg 4, 2022</p>
-            </div>
-        </div>
-        <div class="side-video-list">
-            <div class="image">
-                <img src="../../../assets/imge/02.png">
-            </div>
-            <div class="vid-info">
-                <h1>VIETSUB | 11 món BÁNH SOCOLA ngọt ngào chắc ai đó chưa được thử - Mousse socola, DreamDragon,Muffin
-                </h1>
-                <p>21 thg 5, 2022</p>
-            </div>
-        </div>
-        <div class="side-video-list">
-            <div class="image">
-                <img src="../../../assets/imge/03.png">
-            </div>
-            <div class="vid-info">
-                <h1>[MV]雪の華 - 中島 美嘉(Nakashima Mika) Cover by yurisa</h1>
-                <p>24 thg 1, 2020</p>
-            </div>
-        </div>
-        <div class="side-video-list">
-            <div class="image">
-                <img src="../../../assets/imge/04.png">
-            </div>
-            <div class="vid-info">
-                <h1>KO CẦN LÒ | Cách làm MOCHI KEM ĐẬU ĐỎ MATCHA, MOCHI ĐÀO, CREPE NGÀN LỚP DÂU TÂY</h1>
-                <p>14 thg 8, 2022</p>
-            </div>
-        </div>
-        <div class="side-video-list">
-            <div class="image">
-                <img src="../../../assets/imge/05.png">
-            </div>
-            <div class="vid-info">
-                <h1>[Engsub] Easy Cooking Recipes Of Some Easy-To-Make Cakes🍫#4 | Tiktok ASMR Cooking | Amazing Cakes
-                </h1>
-                <p>5 thg 8, 2022</p>
-            </div>
-        </div>
-        <div class="side-video-list">
-            <div class="image">
-                <img src="../../../assets/imge/06.png">
-            </div>
-            <div class="vid-info">
-                <h1>[生活日常ASMR] 💚💚沉浸式制冰拆冰制饮料 ##11 | Douyin</h1>
-                <p>10 thg 4, 2022</p>
-            </div>
-        </div>
-        <div class="side-video-list">
-            <div class="image">
-                <img src="../../../assets/imge/07.png">
-            </div>
-            <div class="vid-info">
-                <h1>Anh không cần biết quá khứ em ngày xưa... Pháo Hồng ~ Nhạc Lofi Chill Hot Tiktok Nghe Cực Buồn</h1>
-                <p>29 thg 7, 2022</p>
-            </div>
-        </div>
-        <div class="side-video-list">
-            <div class="image">
-                <img src="../../../assets/imge/08.png">
-            </div>
-            <div class="vid-info">
-                <h1>*23* | Making Aesthetic Drinks🤤🧊制作高颜值好喝饮品💚✨</h1>
-                <p>15 thg 6, 2022</p>
-            </div>
-        </div>
-        <div class="side-video-list">
-            <div class="image">
-                <img src="../../../assets/imge/09.png">
-            </div>
-            <div class="vid-info">
-                <h1>[Engsub] Easy Cooking Recipes Of Some Easy-To-Make Cakes🍫#14 | </h1>
-                <p>11 thg 3, 2022</p>
-            </div>
-        </div>
-        <div class="side-video-list">
-            <div class="image">
-                <img src="../../../assets/imge/10.png">
-            </div>
-            <div class="vid-info">
-                <h1>⬛🍓Black Strawberry Latte🍓⬛ 🎨Gallery Cafe🎨 cafe vlog / ASMR 【4K】 카페 브이로그 카페 알바</h1>
-                <p>25 thg 9, 2022</p>
-            </div>
-        </div>
-        <div class="side-video-list">
-            <div class="image">
-                <img src="../../../assets/imge/11.png">
-            </div>
-            <div class="vid-info">
-                <h1>[Nhạc Chill Us-Uk] Những Bài Hát Tiếng Anh "Cực Chill" Siêu Gây Nghiện_#33 💯</h1>
-                <p>1 thg 3, 2022</p>
-            </div>
-        </div>
+        </div> -->
     </div>
 </div>

@@ -4,7 +4,7 @@ export interface User {
     _id: string
     email: string;
     name: string;
-    photoUrl: string;
+    avatar: string;
     subscribers: number;
     videoList: Video[];
  }
