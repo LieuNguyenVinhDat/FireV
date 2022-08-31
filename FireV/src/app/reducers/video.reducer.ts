@@ -93,5 +93,33 @@ export const videoReducer = createReducer(
         _id: ""
 
       }
-    })
+    }),
+    on(VideoActions.getAllExceptId, (state,action) => {
+      console.log(action.id)
+      return {
+        ...state,
+        isLoading: true,
+        _id: action.id
+      }
+    }),
+    on(VideoActions.getAllExceptIdSucceed, (state, action) => {
+      let newState = {
+          ...state,
+          isLoading: false,
+          videoList : action.video,
+          _id: "",
+      }
+        console.log(action.video);
+        return newState;
+    }),
+    on(VideoActions.getAllExceptIdFailed, (state,action) => {
+      console.log(action.error)
+      return {
+        ...state,
+        error: action.error,
+        isLoading: false,
+        _id: ""
+      }
+    }),
+
 );

@@ -34,4 +34,9 @@ export class VideoController {
   public async getAllVideo(){
     return await this.videoService.findAllVideo();
   }
+
+  @Get('all/except')
+  public async getAllExceptId(@Query('id') id: string){
+    return await this.videoService.findAllExceptId(id);
+  }
 }

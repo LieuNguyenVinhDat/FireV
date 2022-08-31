@@ -43,13 +43,10 @@ export class VideoService {
         .populate('author', 'email avatar _id name subscribers',this.userModel);
     }
 
-    async findAllExcludeId(id: string) {
-        // return await this.videoModel
-        // .find({})
-        // .select('-description -likeList -dislikeList -__v -like -dislike -hashtags -url') 
-        // .where('_id') 
-        // .populate('author', 'email avatar _id name subscribers',this.userModel);
+    async findAllExceptId(id: string) {
+        return await this.videoModel
+        .find({_id: {$ne: id}})
+        .select('-description -likeList -dislikeList -__v -like -dislike -hashtags -url') 
+        .populate('author', 'email avatar _id name subscribers',this.userModel);
     }
-
-
 }

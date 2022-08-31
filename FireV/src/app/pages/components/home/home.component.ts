@@ -1,4 +1,3 @@
-
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -10,11 +9,15 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   Video$ = this.store.select((state) => state.video.videoList);
-  constructor(private store: Store<{video: VideoState}>, private router: Router) { }
+
+  constructor(
+    private store: Store<{ video: VideoState }>,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.store.dispatch(VideoActions.getVideo());
@@ -22,17 +25,15 @@ export class HomeComponent implements OnInit {
 
   handleError(e: any) {
     console.log(e);
-    e.target.src = "../../../../../../../assets/images/user.png";
+    e.target.src = '../../../../../../../assets/images/user.png';
   }
 
-  playVideo(id: string){
+  playVideo(id: string) {
     // this.router.navigateByUrl(`/play?id=${id}`);
     window.location.href = `/play?id=${id}`;
   }
 
-  test(){
+  test() {
     console.log('binh');
-
-
   }
 }
