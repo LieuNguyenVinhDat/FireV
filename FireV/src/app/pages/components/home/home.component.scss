@@ -1,12 +1,12 @@
 @media only screen and (max-width: 100%) {
   .home-body {
-    background-color: #283655;
+    background-color: #EEEEEE;
   }
   .home_content{
     // background-color:#25223e;
     // opacity: 0.5;
     position: absolute;
-    background-color: #283655;
+    background-color: #EEEEEE;
   }
   .card{
     width: 80%;
@@ -72,7 +72,7 @@
 // background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
 // background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-background-color: #909fac;  /* fallback for old browsers */
+background-color: #EEEEEE;  /* fallback for old browsers */
 
 
 
@@ -85,7 +85,7 @@ background-color: #909fac;  /* fallback for old browsers */
   align-items: center;
   padding-left: 13rem;
   padding-top: 1rem;
-  background-color: #909fac;
+  background-color: #EEEEEE;
 
 
 }
@@ -121,8 +121,8 @@ background-color: #909fac;  /* fallback for old browsers */
 }
 
 .filter-options:not(.active) {
-  background: #ededed;
-  color: rgb(138, 138, 138);
+  background: #DDDDDD;
+  color: #444444;
   // font-weight: bolder;
 }
 
