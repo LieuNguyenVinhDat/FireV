@@ -7,10 +7,10 @@ export interface Video{
     description: string;
     image_url: string;
     url: string;
-    likes: number;
-    dislikes: number;
+    like: number;
+    dislike: number;
     views: number;
-    owner: User;
+    author: User;
     createdAt: string;
     hour: number;
     minute: number;
@@ -19,6 +19,7 @@ export interface Video{
     comments: Comment[];
     isHidden: boolean;
     hashtags: string[];
-    likeList: User[]; 
-    type: string;                  
+    likeList: User[];
+    type: string;
 }
+

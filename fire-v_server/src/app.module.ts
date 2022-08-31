@@ -29,9 +29,11 @@ export class AppModule implements NestModule{
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(AuthMiddleware)
-      // .exclude(
-      //   { path: 'video/all', method: RequestMethod.GET },
-      //   // { path: 'video/all/thumb', method: RequestMethod.GET },
+      .exclude(
+        { path: 'video/all', method: RequestMethod.GET },
+        { path: 'video/play/(.*)', method: RequestMethod.GET },
+        { path: 'video/play', method: RequestMethod.GET },
+        { path: 'video/all/(.*)', method: RequestMethod.GET },
       //   // { path: 'video/all/vid', method: RequestMethod.GET },
       //   // { path: 'video/one/', method: RequestMethod.GET },
       //   // { path: 'video/entire/', method: RequestMethod.GET },
@@ -40,7 +42,9 @@ export class AppModule implements NestModule{
       //   'video/one/(.*)',
       //   'video/entire/(.*)',
       //   'video/views/(.*)'
-      // )
+      // 'video/play?path=(.*)'
+      //'video/play/(.*)',
+      )
       .forRoutes(
         {
           path: '*',
