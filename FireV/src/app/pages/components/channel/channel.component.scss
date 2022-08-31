@@ -59,7 +59,7 @@ main{
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  border: 15px solid var(#ffffff);
+  border: 15px solid #ffffff;
   margin: 0px auto;
   margin-top: -114px;
   display: flex;
@@ -88,4 +88,28 @@ main{
   padding-bottom: 30px;
   border-bottom: 1px solid red;
   // min-height: 75px
+}
+.user_analysis .item{
+  text-align: center;
+  color: var(#677179)
+}
+
+.user_desc{
+  margin-top: 25px;
+  line-height: 30px;
+  letter-spacing: 0.04rem;
+  color: var(#B5BDD1);
+
+}
+.btn_connect{
+  width: 240px;
+  height: 55px;
+  color: var(#ffffff);
+  background: var(#677179);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px auto;
+  margin-top: 50px;
+  border-radius: 5px;
 }
