@@ -8,8 +8,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 20px;
-    background: #D0E1F9;
+    padding-top: 20px;
     font-family: "Maven Pro", sans-serif;
 }
 
@@ -145,7 +144,12 @@
 
 .vid-info p {
     color: #1e1f26;
+    white-space: nowrap;
     cursor: pointer;
+    width: 20ex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 15;
 }
 
 .plublisher {
@@ -190,7 +194,7 @@
     color: #d0e1f9;
     font-size: 15px;
     cursor: pointer;
-    box-shadow: 0 2px 4px 0 rgba(234, 148, 148, 0.4);
+    //box-shadow: 0 2px 4px 0 rgba(234, 148, 148, 0.4);
     font-weight: bolder;
 }
 
@@ -217,7 +221,7 @@
     align-items: center;
     margin: 5ex 0;
     margin-top: 1ex;
-    color: #1e1f26;
+    color: #240303;
 }
 
 .add-comment img {
@@ -254,7 +258,7 @@
     padding-left: 1ex;
     margin-top: 1.5ex;
     font-weight: bolder;
-    color: #1e1f26;
+    color: #000;
 
 }
 
