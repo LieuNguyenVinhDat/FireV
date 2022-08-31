@@ -11,6 +11,7 @@ export interface Video{
     dislike: number;
     views: number;
     author: User;
+    timeUp: string;
     createdAt: string;
     hour: number;
     minute: number;
