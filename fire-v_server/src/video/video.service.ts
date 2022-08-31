@@ -49,4 +49,10 @@ export class VideoService {
         .select('-description -likeList -dislikeList -__v -like -dislike -hashtags -url') 
         .populate('author', 'email avatar _id name subscribers',this.userModel);
     }
+
+    async update(id: String) {
+        const _video = await this.videoModel.findOne({_id: id});
+        _video.views += 1;
+        return await this.videoModel.findOneAndUpdate({_id: id}, _video, {new: true});
+    }
 }
