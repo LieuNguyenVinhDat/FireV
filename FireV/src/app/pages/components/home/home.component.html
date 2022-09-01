@@ -13,26 +13,20 @@
           <div class="col-md-auto" *ngFor="let video of Video$ | async">
             <div class="card" (click)="playVideo(video._id)">
               <div class="image-title">
-                <img class="card-img-top" src="{{ video.image_url }}"
-                  alt="Card image cap">
+                <img class="card-img-top" src="{{ video.image_url }}" alt="Card image cap">
               </div>
               <div class="card-body">
                 <div class="row">
                   <div class=".col">
-                    <img src="{{ video.author.avatar }}"
-                      class="rounded-circle"
-                      alt="Avatar"
-                      id="avatar"
+                    <img src="{{ video.author.avatar }}" class="rounded-circle" alt="Avatar" id="avatar"
                       (error)="handleError($event)" />
                   </div>
                   <div class=".col">
                     <div class="title-v">
                       <p class="card-title">{{ video.title }}</p>
-                      <p class="card-text">{{ video.author.name }} <br>{{
-                        video.views }} lượt xem - {{video.day}} ngày trước
-                      </div>
+                      <p class="card-text">{{ video.author.name }} <br>{{ video.views }} lượt xem - {{video.timeUp}}
+                        trước
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -42,3 +36,4 @@
       </div>
     </div>
   </div>
+</div>

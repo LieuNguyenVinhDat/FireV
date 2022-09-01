@@ -48,3 +48,16 @@ export const getAllExceptIdFailed = createAction(
   '[Video] Get All Except Id Failed',
   props<{ error: string }>()
 );
+export const updateViews = createAction(
+  '[Video] Update Views',
+  props<{ id: string, video: Video }>()
+);
+export const updateViewsSucceed = createAction(
+  '[Video] Update Views Succeed',
+  props<{ video: Video }>()
+);
+export const updateViewsFailed = createAction(
+  '[Video] Update Views Failed',
+  props<{ error: string }>()
+);
+

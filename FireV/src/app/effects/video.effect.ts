@@ -33,23 +33,23 @@ export class VideoEffect {
       map((video) => {
         video.forEach(async video => {
           let total = new Date().getTime() - new Date(video.createdAt).getTime();
-          // let timeUp = 0;
+          // let timeUp: number = 0;
           video.hour = Math.round((Math.floor((total) / 1000)) / 3600);
           video.minute = Math.round((Math.floor((total) / 1000)) / 60);
           video.second = Math.round((Math.floor((total) / 1000)));
           video.day = Math.round((Math.floor((total) / 1000)) / 86400);
-          // if(video.hour > 0 ){
-          //   timeUp = video.hour;
-          // }
-          // else if(video.minute > 0 && video.minute < 60 && video.hour == 0){
-          //   timeUp = video.minute;
-          // }
-          // else if(video.second > 0 && video.second < 60 && video.minute == 0 && video.hour == 0){
-          //   timeUp = video.second;
-          // }
-          // else if (video.hour > 24){
-          //   timeUp = total;
-          // }
+          if(video.hour > 0  && video.hour < 24){
+            video.timeUp = video.hour.toString() + " giờ";
+          }
+          else if(video.minute > 0 && video.minute < 60 && video.hour == 0){
+            video.timeUp = video.minute.toString() + " phút";
+          }
+          else if(video.second > 0 && video.second < 60 && video.minute == 0 && video.hour == 0){
+            video.timeUp = video.second.toString + " giây";
+          }
+          else if (video.hour >= 24){
+            video.timeUp = video.day.toString() + " ngày";
+          }
         });
         return VideoActions.getVideoSucceed({ video });
       }),
@@ -81,6 +81,20 @@ export class VideoEffect {
       }),
       catchError((error) =>
         of(VideoActions.getAllExceptIdFailed({ error: error }))
+      )
+    )
+  );
+  updateViews$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(VideoActions.updateViews),
+      switchMap((action) => {
+        return this.addVideoService.updateViews(action.id);
+      }),
+      map((video) => {
+        return VideoActions.updateViewsSucceed({ video });
+      }),
+      catchError((error) =>
+        of(VideoActions.updateViewsFailed({ error: error }))
       )
     )
   );
