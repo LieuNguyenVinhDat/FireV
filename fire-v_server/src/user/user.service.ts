@@ -11,7 +11,7 @@ export class UserService {
 
   async create(user: any) {
     try{
-      const user_Indb = await this.findOne(user.email);
+      const user_Indb = await this.userModel.findOne({email :user.email});
       // console.log(user_Indb);
       if(!user_Indb){
         const newUser = new this.userModel();
@@ -44,7 +44,7 @@ export class UserService {
         const user =  await this.userModel.findOne({
           email: email
         })
-        return user;
+        return user._id;
       }else{
         return '';
       }

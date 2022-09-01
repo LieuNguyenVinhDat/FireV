@@ -24,9 +24,9 @@ export class VideoController {
 
   @Get('play/test')
   getFile(@Query('path') path: string): StreamableFile {
-    console.log(path)
+   
     const file = createReadStream(join(process.cwd(), path));
-    console.log(file);
+    console.log(`video was played in this "${file.path}" path`);
     return new StreamableFile(file);
   }
 

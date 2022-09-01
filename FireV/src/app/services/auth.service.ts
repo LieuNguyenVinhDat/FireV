@@ -46,6 +46,8 @@ export class AuthService {
             let user = getAuth().currentUser;
             let idToken = await user!.getIdToken(true)
             resolve(idToken);
+          }else{
+            resolve("");
           }
         })
       } catch (err) {
