@@ -409,6 +409,7 @@ body {
     list-style: none;
     color: #fff;
     text-transform: uppercase;
+
     // font-weight: bold;
     padding: 15px;
     cursor: pointer;
@@ -425,7 +426,8 @@ body {
     }
 .sidebarMenuInner li span {
     font-size: 18px;
-    color: white;
+    
+    // color: white;
     margin-top: 5%;
     padding-right:10%;
 }
@@ -434,21 +436,21 @@ body {
     padding-bottom: 2%;
     position: relative;
     font-family: "Maven Pro", sans-serif;
-    color: #fff;
+    // color: #fff;
     text-transform: uppercase;
-    // font-weight: bold;
+    // font-weight:800;
     cursor: pointer;
     text-decoration: none;
 }
 #sidebarMenu ul li:hover a{
-    padding-left: 5%;
     transition: .4s;
-    font-weight:700;
+    font-weight:800;
+    color:rgb(52, 52, 84);
 }
 .sidebarMenuInner li:hover {
-    font-weight:700;
-    color:red;
-    padding-left: 5%;
+    color:rgb(52, 52, 84);
+    font-weight:800;
+    // padding-left: 5%;
     // padding-left: 5%;
     transition: .4s;
     background: #cb2d3e;  /* fallback for old browsers */
@@ -458,19 +460,16 @@ body {
 }
 
 .sidebarMenuInner i:hover {
-    color: white;
-    opacity:0.85;
+    color:rgb(52, 52, 84);
+    font-weight:800;
     // transition: all .5s;
     // padding-right: 5%;
-    padding-left: 5%;
     transition: .4s;
 }
 
 .sidebarMenuInner a span:hover {
-    color: white;
-    opacity:1;
-    font-weight:700;
-    padding-left: 5%;
+    font-weight:800;
+    color:rgb(52, 52, 84);
 }
 
 input[type="checkbox"]:checked~#sidebarMenu {

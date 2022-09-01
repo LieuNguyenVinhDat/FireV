@@ -19,7 +19,7 @@
 body{
   overflow: hidden;
   min-height: 100vh;
-  font-family: "Poppins", sans-serif;
+  font-family: "Maven Pro", sans-serif;
 }
 
 #profile{
@@ -95,6 +95,7 @@ main{
 
 .user_desc{
   margin-top: 25px;
+  padding-left: 18px;
   line-height: 30px;
   letter-spacing: 0.04rem;
   color: var(#B5BDD1);
@@ -102,28 +103,33 @@ main{
 }
 .btn_connect{
   width: 240px;
-  height: 55px;
+  height: 45px;
   color: var(#ffffff);
-  background: var(#677179);
+  background: #121f26;
   display: flex;
+  color:white;
+  font-size:large;
   align-items: center;
   justify-content: center;
   margin: 0px auto;
   margin-top: 50px;
-  border-radius: 5px;
+  border-radius: 50px;
 }
 
 .content_right{
   width: 60%;
-  padding: 90px 60px;
+  padding: 30px 60px;
+  
 }
 .content_header{
+  
   display:flex;
   justify-content: space-between;
   align-items: center;
 }
 .content_menu{
   display:flex;
+  
   gap: 70px;
 }
 .content_menu .link:first-child a{
@@ -140,7 +146,7 @@ main{
 .btn_follow{
   width:120px;
   height:40px;
-  background: #0C8AFF;
+  background: red;
   color: #ffffff;
   border-radius: 5px;
 }
