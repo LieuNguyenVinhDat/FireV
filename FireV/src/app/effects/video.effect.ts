@@ -88,7 +88,7 @@ export class VideoEffect {
     this.actions$.pipe(
       ofType(VideoActions.updateViews),
       switchMap((action) => {
-        return this.addVideoService.updateViews(action.id, action.video);
+        return this.addVideoService.updateViews(action.id);
       }),
       map((video) => {
         return VideoActions.updateViewsSucceed({ video });

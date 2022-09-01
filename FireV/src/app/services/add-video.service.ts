@@ -22,7 +22,7 @@ export class AddVideoService {
   getAllExceptId(id: string): Observable<Video[]>{
     return this.http.get<Video[]>(`http://127.0.0.1:3000/video/all/except?id=`+id);
   }
-  updateViews(id: string, video: any): Observable<Video>{
-    return this.http.put<Video>(`http://127.0.0.1:3000/video/views/path?id=`+id, video);
+  updateViews(id: string): Observable<Video>{
+    return this.http.put<Video>(`http://127.0.0.1:3000/video/views/path?id=`+id, '');
   }
 }

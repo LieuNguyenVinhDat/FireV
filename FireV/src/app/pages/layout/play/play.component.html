@@ -1,7 +1,7 @@
 <div class="row1">
     <div class="play-video">
         <div class="video">
-            <video controls autoplay>
+            <video controls autoplay (timeupdate)="setCurrentTime($event)">
                 <source *ngIf="(playVideo$|async)?.url"
                 src="http://127.0.0.1:3000/video/play/test?path={{(playVideo$ | async)?.url}}" type="video/mp4">
 
@@ -108,7 +108,7 @@
                     <br />
                     <span style="color: #1e1f26;">Chia sẻ</span>
                 </div>
-              
+
             </div>
             <p>{{(playVideo$ | async)?.views}} lượt xem &bull; 29 thg 7, 2022</p>
         </div>

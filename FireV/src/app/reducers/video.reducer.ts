@@ -127,17 +127,18 @@ export const videoReducer = createReducer(
         ...state,
         isLoading: true,
         _id: action.id,
-        videoLoad: action.video
+        // videoLoad: action.video
       }
     }),
     on(VideoActions.updateViewsSucceed, (state, action) => {
+
       let newState = {
           ...state,
           isLoading: false,
-          videoLoad : action.video,
+          // videoLoad : action.video,
           _id: "",
       }
-        console.log(action.video);
+        console.log(action.type);
         return newState;
     }),
     on(VideoActions.updateViewsFailed, (state,action) => {
