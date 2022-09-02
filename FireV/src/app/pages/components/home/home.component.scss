@@ -11,10 +11,15 @@
   .card{
     width: 80%;
   }
+  .home-main{
+    display:flex;
+    padding-left: 0;
+  }
 }
 @media only screen and (max-width: 100%) {
   /* For mobile phones: */
   .col {width: 100%;}
+ 
 }
 
 .home-main {
@@ -47,26 +52,34 @@ background-color: #EEEEEE;  /* fallback for old browsers */
 .filter-options {
   flex: 0 0 auto;
   padding: 8px 25px;
-  border-radius: 55px;
+  border-radius: 60px;
   background: #283655;
   border: 1px solid white;
   text-transform: capitalize;
+  transition: all 0.3s ease;
   margin-right: 25px;
   color: white;
   font-size: 15px;
   cursor: pointer;
-
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
 
 }
 
 .filter-options.active {
   color: #fff;
-  background: rgb(183, 183, 183);
+  background: rgb(255,27,0);
+ 
   // font-weight: bolder;
 }
 
 .filter-options:hover {
-  color: rgb(203, 203, 203);
+  background: #DDDDDD;
+  color: #444444;
   font-weight: bolder;
 }
 
