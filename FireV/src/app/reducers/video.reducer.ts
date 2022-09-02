@@ -95,7 +95,6 @@ export const videoReducer = createReducer(
       }
     }),
     on(VideoActions.getAllExceptId, (state,action) => {
-      console.log(action.id)
       return {
         ...state,
         isLoading: true,

@@ -6,6 +6,7 @@ import { VideoState } from 'src/app/states/video.state';
 import * as VideoActions from 'src/app/actions/video.action';
 import * as AuthActions from 'src/app/actions/auth.action';
 import { AuthState } from 'src/app/states/auth.state';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-play',
@@ -24,6 +25,7 @@ export class PlayComponent implements OnInit {
   idToken: string = '';
   userId$ = this.store.select((state) => state.auth._id);
   userId: string = '';
+  author: User = <User>{};
 
   constructor(
     public route: ActivatedRoute,
@@ -35,34 +37,26 @@ export class PlayComponent implements OnInit {
     id.subscribe((id) => {
       this.store.dispatch(VideoActions.getVideoById({ id: id }));
       this.store.dispatch(VideoActions.getAllExceptId({ id: id }));
+    });
 
-      //get idtoken from user
-      this.idToken$.subscribe((value) => {
-        if (value) {
-          this.idToken = value;
-          this.store.dispatch(AuthActions.getUserId({ idToken: this.idToken }));
-        } else {
-          this.idToken = '';
-          this.userId = '';
-        }
-      });
+    //get idtoken from user
+    this.idToken$.subscribe((value) => {
+      if (value) {
+        this.idToken = value;
+        this.store.dispatch(AuthActions.getUserId({ idToken: this.idToken }));
+      } else {
+        this.idToken = '';
+        this.userId = '';
+      }
+    });
 
-      // this.store.dispatch(VideoActions.getVideo());
 
-      // const video: Observable<any> = route.queryParams.pipe(
-      //   map((p) => p['video'])
-      // );
-      // video.subscribe((video) => {
-      // this.store.dispatch(VideoActions.updateViews({id:id, video: video}));
-      // if(this.totalTime > 0){
-      //   if(this.totalTime > 120){
-      //   }
-      //   if(this.totalTime < 120){
-      //   }
-      // }
-      // if(this.totalTime == 0){
-      // }
-      // });
+    this.playVideo$.subscribe((value) => {
+      if (value) {
+        this.author = value.author;
+        console.log(value);
+        console.log('Author id nè ' + this.author._id);
+      }
     });
   }
 
@@ -70,7 +64,7 @@ export class PlayComponent implements OnInit {
     this.userId$.subscribe((value) => {
       if (value) {
         this.userId = value;
-        console.log('User id nè' + this.userId);
+        console.log('User id nè ' + this.userId);
       }
     });
 
@@ -94,17 +88,19 @@ export class PlayComponent implements OnInit {
         map((p) => p['video'])
       );
       video.subscribe((video) => {
-        if (this.totalTime >= 120.0) {
-          if (this.currentTime > 120.0 && this.currentTime < 120.2) {
-            this.store.dispatch(
-              VideoActions.updateViews({ id: id, video: video })
-            );
-          }
-        } else if (this.totalTime < 120.0) {
-          if (this.currentTime >= this.totalTime) {
-            this.store.dispatch(
-              VideoActions.updateViews({ id: id, video: video })
-            );
+        if (this.author._id != this.userId) {
+          if (this.totalTime >= 120.0) {
+            if (this.currentTime > 120.0 && this.currentTime < 120.2) {
+              this.store.dispatch(
+                VideoActions.updateViews({ id: id, video: video })
+              );
+            }
+          } else if (this.totalTime < 120.0) {
+            if (this.currentTime >= this.totalTime) {
+              this.store.dispatch(
+                VideoActions.updateViews({ id: id, video: video })
+              );
+            }
           }
         }
 
