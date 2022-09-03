@@ -149,4 +149,32 @@ export const videoReducer = createReducer(
         _id: ""
       }
     }),
+    on(VideoActions.updateLikes, (state,action) => {
+      console.log(action.type)
+      return {
+        ...state,
+        isLoading: true,
+        _id: action.id,
+        idToken: action.idToken,
+      }
+    }),
+    on(VideoActions.updateLikesSucceed, (state, action) => {
+
+        let newState = {
+            ...state,
+            isLoading: false,
+            _id: "",
+        }
+          console.log(action.type);
+          return newState;
+    }),
+    on(VideoActions.updateLikesFailed, (state,action) => {
+      console.log(action.error)
+      return {
+        ...state,
+        error: action.error,
+        isLoading: false,
+        _id: ""
+      }
+    }),
 );

@@ -1,5 +1,5 @@
 <div class="row1">
-    <div class="play-video">
+    <div class="play-video" *ngIf="playVideo$|async as videoTest">
         <div class="video">
             <video controls autoplay (timeupdate)="setCurrentTime($event)">
                 <source *ngIf="(playVideo$|async)?.url"
@@ -94,9 +94,10 @@
         <div class="play-video-info">
             <div class="like-share">
                 <div class="sidebar__category">
-                    <i class="material-icons" style="color: #1e1f26" >thumb_up</i>
+                    <i class="material-icons" style="color: #1e1f26"  (click)="updateLike(videoTest._id)" *ngIf="!isLiked">thumb_up</i>
+                    <i class="material-icons" style="color: red"  (click)="updateLike(videoTest._id)" *ngIf="isLiked">thumb_up</i>
                     <br />
-                    <span style="color: #240303;;">{{(playVideo$ | async)?.like}}</span>
+                    <span style="color: #240303;;">{{like}}</span>
                 </div>
                 <div class="sidebar__category">
                     <i class="material-icons" style="color: #1e1f26" >thumb_down</i>
