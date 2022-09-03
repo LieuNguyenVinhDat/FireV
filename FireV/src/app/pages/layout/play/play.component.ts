@@ -24,8 +24,13 @@ export class PlayComponent implements OnInit {
   idToken$ = this.store.select((state) => state.auth.idToken);
   idToken: string = '';
   userId$ = this.store.select((state) => state.auth._id);
-  userId: string = '';
+  userId: any;
   author: User = <User>{};
+  like: number = 0;
+  dislike: number = 0;
+  isLiked: boolean = false;
+  isDisliked: boolean = false;
+  likeList: Array<string> = [];
 
   constructor(
     public route: ActivatedRoute,
@@ -57,7 +62,15 @@ export class PlayComponent implements OnInit {
         console.log(value);
         console.log('Author id nè ' + this.author._id);
       }
+      if (value.like != undefined && value.dislike != undefined) {
+        this.like = value.like;
+        console.log('Like nè ' + this.like);
+        console.log(value.likeList);
+        this.likeList = value.likeList;
+        console.log(this.isLiked);
+      }
     });
+
   }
 
   ngOnInit(): void {
@@ -65,8 +78,16 @@ export class PlayComponent implements OnInit {
       if (value) {
         this.userId = value;
         console.log('User id nè ' + this.userId);
+        if(this.likeList.includes(this.userId)){
+          this.isLiked = true;
+        }else{
+          this.isLiked = false;
+        }
+        console.log(this.isLiked);
       }
     });
+
+
 
   }
 
@@ -76,9 +97,8 @@ export class PlayComponent implements OnInit {
   }
 
   setCurrentTime(event: any) {
-    this.currentTime = event.target.currentTime;
+    this.currentTime = event.target.currentTime.toFixed(3);
     this.totalTime = event.target.duration;
-
     //  console.log(this.currentTime);
     const id: Observable<string> = this.route.queryParams.pipe(
       map((p) => p['id'])
@@ -89,24 +109,45 @@ export class PlayComponent implements OnInit {
       );
       video.subscribe((video) => {
         if (this.author._id != this.userId) {
-          if (this.totalTime >= 120.0) {
-            if (this.currentTime > 120.0 && this.currentTime < 120.2) {
+
+            if (this.currentTime > ((this.totalTime * 60)/100.0) && this.currentTime < (((this.totalTime * 60)/100.0)+0.2)) {
               this.store.dispatch(
                 VideoActions.updateViews({ id: id, video: video })
               );
             }
-          } else if (this.totalTime < 120.0) {
-            if (this.currentTime >= this.totalTime) {
-              this.store.dispatch(
-                VideoActions.updateViews({ id: id, video: video })
-              );
-            }
-          }
+          // if (this.totalTime >= 120.0) {
+          //   if (this.currentTime > 120.0 && this.currentTime < 120.2) {
+          //     this.store.dispatch(
+          //       VideoActions.updateViews({ id: id, video: video })
+          //     );
+          //   }
+          // } else if (this.totalTime < 120.0) {
+          //   if (this.currentTime >= this.totalTime) {
+          //     this.store.dispatch(
+          //       VideoActions.updateViews({ id: id, video: video })
+          //     );
+          //   }
+          // }
         }
 
-        console.log(this.totalTime);
+        // console.log(this.totalTime);
+        // console.log((this.totalTime * 60)/100.0);
+
         // console.log(this.currentTime);
       });
     });
   }
+
+  updateLike(id: string){
+    this.store.dispatch(VideoActions.updateLikes({id: id, idToken: this.idToken}));
+    if(this.isLiked == false){
+      this.like += 1;
+      this.isLiked = true;
+    }else if(this.isLiked == true){
+      this.like -= 1;
+      this.isLiked = false;
+    }
+
+  }
+
 }

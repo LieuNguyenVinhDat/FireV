@@ -98,4 +98,18 @@ export class VideoEffect {
       )
     )
   );
+  updateLike$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(VideoActions.updateLikes),
+      switchMap((action) => {
+        return this.addVideoService.updateLikes(action.id, action.idToken);
+      }),
+      map((video) => {
+        return VideoActions.updateLikesSucceed({ video });
+      }),
+      catchError((error) =>
+        of(VideoActions.updateLikesFailed({ error: error }))
+      )
+    )
+  );
 }

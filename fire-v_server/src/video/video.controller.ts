@@ -44,4 +44,15 @@ export class VideoController {
   public async updateVideo(@Query('id') id: string){
     return await this.videoService.update(id);
   }
+
+  @Put('likes/path')
+  public async updateLike(@Query('id') id: string, @Req() req: any){
+    // console.log(req.user);
+    return await this.videoService.updateLike(id, req.user);
+  }
+
+  @Put('dislikes/path')
+  public async updateDislike(@Query('id') id: string, @Req() req: any){
+    return await this.videoService.updateDislike(id, req.user);
+  }
 }
