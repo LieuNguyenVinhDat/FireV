@@ -84,3 +84,47 @@ export const updateLikesFailed = createAction(
   props<{ error: string }>()
 );
 
+//update dislikes
+export const updateDislikes = createAction(
+  '[Video] Update Dislikes',
+  props<{ id: string, idToken: string }>()
+);
+export const updateDislikesSucceed = createAction(
+  '[Video] Update Dislikes Succeed',
+  props<{ video: Video }>()
+);
+export const updateDislikesFailed = createAction(
+  '[Video] Update Dislikes Failed',
+  props<{ error: string }>()
+);
+
+//update unlikes
+export const updateUnlikes = createAction(
+  '[Video] Update Unlikes',
+  props<{ id: string, idToken: string }>()
+);
+export const updateUnlikesSucceed = createAction(
+  '[Video] Update Unlikes Succeed',
+  props<{ video: Video }>()
+);
+export const updateUnlikesFailed = createAction(
+  '[Video] Update Unlikes Failed',
+  props<{ error: string }>()
+);
+
+//update undislikes
+export const updateUndislikes = createAction(
+  '[Video] Update Undislikes',
+  props<{ id: string, idToken: string }>()
+);
+export const updateUndislikesSucceed = createAction(
+  '[Video] Update Undislikes Succeed',
+  props<{ video: Video }>()
+);
+export const updateUndislikesFailed = createAction(
+  '[Video] Update Undislikes Failed',
+  props<{ error: string }>()
+);
+
+
+

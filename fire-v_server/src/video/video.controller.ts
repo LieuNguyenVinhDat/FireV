@@ -17,9 +17,9 @@ export class VideoController {
   }
 
   @Get('play')
-  public async getVideoByid(@Query('id') id: string){
+  public  getVideoByid(@Query('id') id: string){
     console.log(id);
-      return await this.videoService.findByVideoId(id);
+      return this.videoService.findByVideoId(id);
   }
 
   @Get('play/test')
@@ -53,6 +53,16 @@ export class VideoController {
 
   @Put('dislikes/path')
   public async updateDislike(@Query('id') id: string, @Req() req: any){
+    return await this.videoService.updateDislike(id, req.user);
+  }
+
+  @Put('unlikes/path')
+  public async updateUnlike(@Query('id') id: string, @Req() req: any){
+    return await this.videoService.updateLike(id, req.user);
+  }
+
+  @Put('undislikes/path')
+  public async updateUndislike(@Query('id') id: string, @Req() req: any){
     return await this.videoService.updateDislike(id, req.user);
   }
 }

@@ -10,7 +10,7 @@ export class VideoEffect {
   constructor(
     private actions$: Actions,
     private addVideoService: AddVideoService
-  ) {}
+  ) { }
 
   uploadVideo$ = createEffect(() =>
     this.actions$.pipe(
@@ -38,16 +38,16 @@ export class VideoEffect {
           video.minute = Math.round((Math.floor((total) / 1000)) / 60);
           video.second = Math.round((Math.floor((total) / 1000)));
           video.day = Math.round((Math.floor((total) / 1000)) / 86400);
-          if(video.hour > 0  && video.hour < 24){
+          if (video.hour > 0 && video.hour < 24) {
             video.timeUp = video.hour.toString() + " giờ";
           }
-          else if(video.minute > 0 && video.minute < 60 && video.hour == 0){
+          else if (video.minute > 0 && video.minute < 60 && video.hour == 0) {
             video.timeUp = video.minute.toString() + " phút";
           }
-          else if(video.second > 0 && video.second < 60 && video.minute == 0 && video.hour == 0){
+          else if (video.second > 0 && video.second < 60 && video.minute == 0 && video.hour == 0) {
             video.timeUp = video.second.toString + " giây";
           }
-          else if (video.hour >= 24){
+          else if (video.hour >= 24) {
             video.timeUp = video.day.toString() + " ngày";
           }
         });
@@ -109,6 +109,48 @@ export class VideoEffect {
       }),
       catchError((error) =>
         of(VideoActions.updateLikesFailed({ error: error }))
+      )
+    )
+  );
+  updateDislike$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(VideoActions.updateDislikes),
+      switchMap((action) => {
+        return this.addVideoService.updateDislikes(action.id, action.idToken);
+      }),
+      map((video) => {
+        return VideoActions.updateDislikesSucceed({ video });
+      }),
+      catchError((error) =>
+        of(VideoActions.updateDislikesFailed({ error: error }))
+      )
+    )
+  );
+  updateUndislike$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(VideoActions.updateUndislikes),
+      switchMap((action) => {
+        return this.addVideoService.updateUndislikes(action.id, action.idToken);
+      }),
+      map((video) => {
+        return VideoActions.updateUndislikesSucceed({ video });
+      }),
+      catchError((error) =>
+        of(VideoActions.updateUndislikesFailed({ error: error }))
+      )
+    )
+  );
+  updateUnlike$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(VideoActions.updateUnlikes),
+      switchMap((action) => {
+        return this.addVideoService.updateUnlikes(action.id, action.idToken);
+      }),
+      map((video) => {
+        return VideoActions.updateUnlikesSucceed({ video });
+      }),
+      catchError((error) =>
+        of(VideoActions.updateUnlikesFailed({ error: error }))
       )
     )
   );

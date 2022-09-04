@@ -100,9 +100,10 @@
                     <span style="color: #240303;;">{{like}}</span>
                 </div>
                 <div class="sidebar__category">
-                    <i class="material-icons" style="color: #1e1f26" >thumb_down</i>
+                    <i class="material-icons" style="color: #1e1f26" (click)="updateDislike(videoTest._id)" *ngIf="!isDisliked">thumb_down</i>
+                    <i class="material-icons" style="color: red"  (click)="updateDislike(videoTest._id)" *ngIf="isDisliked">thumb_down</i>
                     <br />
-                    <span style="color: #240303;;">{{(playVideo$ | async)?.dislike}}</span>
+                    <span style="color: #240303;;">{{dislike}}</span>
                 </div>
                 <div class="sidebar__category">
                     <i class="material-icons" style="color: #1e1f26" >share</i>

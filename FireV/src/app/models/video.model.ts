@@ -21,6 +21,7 @@ export interface Video{
     isHidden: boolean;
     hashtags: string[];
     likeList: string[];
+    dislikeList: string[];
     type: string;
 }
 

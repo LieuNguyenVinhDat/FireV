@@ -30,10 +30,14 @@ export class VideoService {
         }
     }
 
-    async findByVideoId(id: string) {
-
-        return await this.videoModel.findById(id)
-        .populate('author', 'email avatar _id name subscribers',this.userModel);
+    async findByVideoId(_id: string) {
+        try{
+            return await this.videoModel.findOne({ _id: _id })
+            .populate('author', 'email avatar _id name subscribers',this.userModel);
+        }catch(err){
+            console.log(err);
+        }
+       
     }
 
     async findAllVideo() {
@@ -63,7 +67,12 @@ export class VideoService {
             email: user.email,
         }).exec();
         const idOfUser = user_Indb._id;
-        
+
+        if(_video.dislikeList.includes(user_Indb._id)){
+            const index = _video.dislikeList.indexOf(idOfUser);
+            _video.dislikeList.splice(index, 1);
+            _video.dislike -= 1;
+        }
         if(_video.likeList.includes(user_Indb._id)){
             const index = _video.likeList.indexOf(idOfUser);
             console.log(index);
@@ -83,6 +92,12 @@ export class VideoService {
             email: user.email,
         }).exec();
         const idOfUser = user_Indb._id;
+
+        if(_video.likeList.includes(user_Indb._id)){
+            const index = _video.likeList.indexOf(idOfUser);
+            _video.likeList.splice(index, 1);
+            _video.like -= 1;
+        }
         if(_video.dislikeList.includes(user_Indb._id)){
             const index = _video.dislikeList.indexOf(idOfUser);
             _video.dislikeList.splice(index, 1);

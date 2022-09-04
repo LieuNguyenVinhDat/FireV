@@ -31,6 +31,7 @@ export class PlayComponent implements OnInit {
   isLiked: boolean = false;
   isDisliked: boolean = false;
   likeList: Array<string> = [];
+  dislikeList: Array<string> = [];
 
   constructor(
     public route: ActivatedRoute,
@@ -57,17 +58,18 @@ export class PlayComponent implements OnInit {
 
 
     this.playVideo$.subscribe((value) => {
-      if (value) {
+      if (value != null && value != undefined) {
         this.author = value.author;
         console.log(value);
         console.log('Author id nè ' + this.author._id);
       }
       if (value.like != undefined && value.dislike != undefined) {
         this.like = value.like;
+        this.dislike = value.dislike;
         console.log('Like nè ' + this.like);
-        console.log(value.likeList);
+        console.log('Dislike nè ' + this.dislike);
         this.likeList = value.likeList;
-        console.log(this.isLiked);
+        this.dislikeList = value.dislikeList;
       }
     });
 
@@ -78,12 +80,11 @@ export class PlayComponent implements OnInit {
       if (value) {
         this.userId = value;
         console.log('User id nè ' + this.userId);
-        if(this.likeList.includes(this.userId)){
+        if (this.likeList.includes(this.userId)) {
           this.isLiked = true;
-        }else{
-          this.isLiked = false;
+        } else if (this.dislikeList.includes(this.userId)) {
+          this.isDisliked = true;
         }
-        console.log(this.isLiked);
       }
     });
 
@@ -110,11 +111,11 @@ export class PlayComponent implements OnInit {
       video.subscribe((video) => {
         if (this.author._id != this.userId) {
 
-            if (this.currentTime > ((this.totalTime * 60)/100.0) && this.currentTime < (((this.totalTime * 60)/100.0)+0.2)) {
-              this.store.dispatch(
-                VideoActions.updateViews({ id: id, video: video })
-              );
-            }
+          if (this.currentTime > ((this.totalTime * 60) / 100.0) && this.currentTime < (((this.totalTime * 60) / 100.0) + 0.2)) {
+            this.store.dispatch(
+              VideoActions.updateViews({ id: id, video: video })
+            );
+          }
           // if (this.totalTime >= 120.0) {
           //   if (this.currentTime > 120.0 && this.currentTime < 120.2) {
           //     this.store.dispatch(
@@ -138,16 +139,42 @@ export class PlayComponent implements OnInit {
     });
   }
 
-  updateLike(id: string){
-    this.store.dispatch(VideoActions.updateLikes({id: id, idToken: this.idToken}));
-    if(this.isLiked == false){
+  updateLike(videoId: string) {
+    if (this.isDisliked == false && this.isLiked == false) {
+      this.store.dispatch(VideoActions.updateLikes({ id: videoId, idToken: this.idToken }));
       this.like += 1;
       this.isLiked = true;
-    }else if(this.isLiked == true){
+    }
+    else if (this.isDisliked == true && this.isLiked == false) {
+      this.store.dispatch(VideoActions.updateLikes({ id: videoId, idToken: this.idToken }));
+      this.dislike -= 1;
+      this.like += 1;
+      this.isLiked = true;
+      this.isDisliked = false;
+    } else if (this.isDisliked == true && this.isLiked == false) {
+      this.store.dispatch(VideoActions.updateUnlikes({ id: videoId, idToken: this.idToken }));
       this.like -= 1;
       this.isLiked = false;
     }
-
   }
+  updateDislike(videoId: string) {
+    if (this.isDisliked == false && this.isLiked == false) {
+      this.store.dispatch(VideoActions.updateDislikes({ id: videoId, idToken: this.idToken }));
+      this.dislike += 1;
+      this.isDisliked = true;
+    }
+    else if (this.isDisliked == false && this.isLiked == true) {
+      this.store.dispatch(VideoActions.updateDislikes({ id: videoId, idToken: this.idToken }));
+      this.dislike += 1;
+      this.like -= 1;
+      this.isLiked = false;
+      this.isDisliked = true;
+    } else if (this.isDisliked == true && this.isLiked == false) {
+      this.store.dispatch(VideoActions.updateUndislikes({ id: videoId, idToken: this.idToken }));
+      this.dislike -= 1;
+      this.isDisliked = false;
+    }
+  }
+
 
 }

@@ -7,6 +7,7 @@ import { from } from 'rxjs';
 })
 export class AuthService {
   constructor(private auth: Auth) { }
+  
   login() {
     return from(
       new Promise<string>(async (resolve, reject) => {
