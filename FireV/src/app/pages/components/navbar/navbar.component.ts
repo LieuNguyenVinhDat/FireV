@@ -4,6 +4,7 @@ import { AuthState } from 'src/app/states/auth.state';
 import * as AuthActions from 'src/app/actions/auth.action';
 import { Auth, getAuth, onAuthStateChanged } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { InteractService } from './../../../services/interact.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -20,10 +21,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(private store: Store<{ auth: AuthState }>,
     private router: Router,
-    private auth: Auth
+    private auth: Auth,
   ) {
-
-
   }
 
   ngOnInit(): void { 
