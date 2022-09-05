@@ -46,7 +46,7 @@ nav{
         position: absolute;
         top: 60px;
         right: -10px;
-        padding: 10px 20px 0px 20px;
+        padding: 10px 10px 0px 10px;
         background: whitesmoke;
         width: 200px;
         box-sizing: 0 5px 25px rgba(0,0,0,1);
@@ -140,9 +140,28 @@ nav{
 }
 
 .nav-middle .vid-icon{
+    background: white;
+    width: 120px;
+    height: 35px;
+    border-radius: 20px;
     font-size:x-large;
-    color:white;
-    margin-left: 55%;
+    position: fixed;
+    color:black;
+    margin-left: 51.5%;
+    display: flex;
+    align-items:center;
+}
+
+.nav-middle .vid-icon p{
+    list-style: none;
+    color:black;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    position: fixed;
+    align-items:center;
+    margin-top:15.5px;
+    margin-left: 2.5%;
 }
 .nav-middle .search-box{
     border: 1px solid #ccc;
@@ -179,6 +198,9 @@ nav{
         width: 100px;
     }
     .nav-middle .mic-icon{
+        display: none;
+    }
+    .nav-middle .vid-icon{
         display: none;
     }
     .logo{
