@@ -21,6 +21,9 @@ export class UserService {
         const _user = await newUser.save();
         return _user;
       }
+      if(user_Indb){
+        console.log(`user with email:${user.email} has just logined `)
+      }
     }catch(err){
       console.log(err);
     }
@@ -52,4 +55,6 @@ export class UserService {
       return err;
     }
   }
+
+  
 }
