@@ -1,3 +1,4 @@
+import { SnackBarComponent } from './../../pages/components/snack-bar/snack-bar.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AddVideoComponent } from 'src/app/pages/components/add-video/add-video.component';
@@ -34,6 +35,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ViewProfileComponent,
     DiscoverComponent,
     IntroComponent,
+    SnackBarComponent
 
   ],
   imports: [
@@ -68,6 +70,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     FormsModule,
     UpdateComponent,
     MatSnackBarModule,
+    SnackBarComponent
 
 
   ],

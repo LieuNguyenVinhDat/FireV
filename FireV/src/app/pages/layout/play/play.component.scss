@@ -73,7 +73,7 @@
     margin-right: 5px;
     background-color: transparent;
     cursor: pointer;
-    
+
     i,
     span {
         background-color: transparent;
@@ -183,7 +183,7 @@
     color: #1e1f26;
 }
 
-.plublisher button {
+.plublisher .noneSub {
     flex: 0 0 auto;
     padding: 8px 25px;
     border-radius: 55px;
@@ -196,6 +196,21 @@
     cursor: pointer;
     //box-shadow: 0 2px 4px 0 rgba(234, 148, 148, 0.4);
     font-weight: bolder;
+}
+
+.plublisher .Sub {
+  flex: 0 0 auto;
+  padding: 8px 25px;
+  border-radius: 55px;
+  background: #33CC33;
+  border: 1px solid #33CC33;
+  text-transform: capitalize;
+  margin-right: 25px;
+  color: #d0e1f9;
+  font-size: 15px;
+  cursor: pointer;
+  //box-shadow: 0 2px 4px 0 rgba(234, 148, 148, 0.4);
+  font-weight: bolder;
 }
 
 .vid-description {
