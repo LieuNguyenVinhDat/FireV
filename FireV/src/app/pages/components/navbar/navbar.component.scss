@@ -10,15 +10,20 @@
 }
 
 nav{
-    padding: 10px;
+    // padding: 10px;
     justify-content: space-between;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     background: #121f26;
-    position: fixed;
+    // position: absolute;
     width: 100vw;
     top: 0;
     z-index: 10;
     height: 80px;
+    position: absolute;
+    // position: fixed;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
 }
 
 .nav-right{
@@ -46,7 +51,7 @@ nav{
         position: absolute;
         top: 60px;
         right: -10px;
-        padding: 10px 10px 0px 10px;
+        padding: 10px 10px 0px 0px;
         background: whitesmoke;
         width: 200px;
         box-sizing: 0 5px 25px rgba(0,0,0,1);
@@ -113,25 +118,25 @@ nav{
 }
 
 
-.nav-right img{
-    width: 25px;
-    margin-right: 25px;
-}
+// .nav-right img{
+//     width: 25px;
+//     margin-right: 25px;
+// }
 
 .nav-right .user-icon{
-    width: 35px;
+    width: 50px;
     border-radius: 50%;
-    margin-left: 0;
+    // margin-left: 90%;
 }
 
 .nav-left .menu-icon{
-    width: 22px;
+    width: 90px;
     margin-right: 25px;
 }
 
 .nav-left .logo{
-    width: 120px;
-    margin-left: 30%;
+    width: 100px;
+    margin-left: 45px;
 }
 
 .nav-middle .mic-icon{
@@ -145,24 +150,24 @@ nav{
     height: 35px;
     border-radius: 20px;
     font-size:x-large;
-    position: fixed;
+    // position: fixed;
     color:black;
-    margin-left: 51.5%;
+    right: 80px;
     display: flex;
     align-items:center;
 }
 
-.nav-middle .vid-icon p{
-    list-style: none;
-    color:black;
-    cursor: pointer;
-    font-size: 16px;
-    text-decoration: none;
-    position: fixed;
-    align-items:center;
-    margin-top:15.5px;
-    margin-left: 2.5%;
-}
+// .nav-middle .vid-icon p{
+//     list-style: none;
+//     color:black;
+//     cursor: pointer;
+//     font-size: 16px;
+//     text-decoration: none;
+//     // position: fixed;
+//     align-items:center;
+//     margin-top:15.5px;
+//     margin-left: 35px;
+// }
 .nav-middle .search-box{
     border: 1px solid #ccc;
     margin-right: 4%;
@@ -171,7 +176,7 @@ nav{
 }
 
 .nav-middle .search-box input{
-    width: 30rem;
+    width: 100%;
     border: 0;
     outline: 0;
     background: transparent;
@@ -183,29 +188,28 @@ nav{
 
 
 
-@media (max-width: 100%){
-    .menu-icon{
-        display: none;
-    }
-    .nav-right img{
-        display: none;
-    }
-    .nav-right .user-icon{
-        display: block;
-        width: 30px;
-    }
-    .nav-middle .search-box input{
-        width: 100px;
-    }
-    .nav-middle .mic-icon{
-        display: none;
-    }
-    .nav-middle .vid-icon{
-        display: none;
-    }
-    .logo{
-        width: 90px;
-    }
-    
-}
+// @media (max-width: 100%){
+//     .menu-icon{
+//         display: block;
+//     }
+//     .nav-right img{
+//         display: block;
+//     }
+//     .nav-right .user-icon{
+//         display: block;
+//         width: 30px;
+//     }
+//     .nav-middle .search-box input{
+//         width: 100px;
+//     }
+//     .nav-middle .mic-icon{
+//         display: none;
+//     }
+//     button{
+//         width: 100%;
+//     }
+//     .logo{
+//         width: 90px;
+//     }
+// }
 
