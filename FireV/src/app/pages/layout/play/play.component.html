@@ -121,8 +121,8 @@
                 <p>{{(playVideo$ | async)?.author?.name}}</p>
                 <span>{{subscriber}} người đăng kí</span>
             </div>
-            <button type="button" class="noneSub" (click)="updateSubcribe(idOfAuthor)" *ngIf="!isSubscribed && author._id != userId">Đăng Ký</button>
-            <button type="button" class="Sub" (click)="updateSubcribe(idOfAuthor)" *ngIf="isSubscribed && author._id != userId">
+            <button type="button" class="noneSub" (click)="updateSubcribe(idOfAuthor)" *ngIf="!isSubscribed && idOfAuthor != userId">Đăng Ký</button>
+            <button type="button" class="Sub" (click)="updateSubcribe(idOfAuthor)" *ngIf="isSubscribed && idOfAuthor != userId">
               Đã đăng Ký</button>
         </div>
         <div class="vid-description">
