@@ -54,7 +54,7 @@
         <!-- <img src="../../../assets/images/voice-search.png" alt="" class="mic-icon"> -->
     </div>
     <div class="nav-right flex-div">
-        <button
+        <button (click)="goToAdd()"
             style="color:white;
             margin-right:28px;
             width: 100%;
@@ -81,7 +81,7 @@
                     class="user-icon" (click)="toggleShow()">
             </div>
             <div class="menu" *ngIf="isShown" (click)="toggleShow()">
-                <h3>{{displayName}}<br><span>Special Guys</span></h3>
+                <h3 (click)="goToChannel()" > {{displayName}}<br><span>Special Guys</span></h3>
                 <ul>
                     <!-- <li ><img src="../../../assets/images/user.png" alt=""><a>Your Channel</a></li>
                     <li ><img src="../../../assets/images/edit.png" alt=""><a (click)="toggleShow()">Add Video</a></li>

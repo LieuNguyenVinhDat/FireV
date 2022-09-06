@@ -23,13 +23,13 @@ body{
 }
 
 #profile{
-  width: 1440px;
+  width: 100%;
   min-height: 600px;
   margin: 0px auto;
   margin-top: 10px;
 }
 .header{
-  width: 1440px;
+  width: 100%;
   min-height: 300px;
   background: url("https://www.desktopbackground.org/p/2015/06/06/960068_best-10-wallpaper-nature-hd-pictures-image-gallery_4000x2236_h.jpg");
   display: flex;
@@ -43,7 +43,19 @@ body{
   text-decoration: uppercase;
   text-shadow: 0px 4px 4px rgba(255,0,0,0.25)
 }
-
+.container1{
+  // padding-left: 4.5%;
+  height: 100vh;
+  width: 90%;
+  margin-left: 9.5%;
+  padding-right: 2%;
+  padding-bottom: 20px;
+}
+.large-container{
+  height: 100%;
+  padding-right: 0%;
+  padding-bottom: 20px;
+}
 /**/
 main{
   display: flex;
@@ -94,9 +106,9 @@ main{
 }
 
 .user_desc{
-  margin-top: 25px;
+  margin-top: 40px;
   width: 555px;
-  padding-left: 50px;
+  padding-left: 90px;
   text-align: justify;
   text-justify: inter-word;
   line-height: 30px;
@@ -115,8 +127,9 @@ main{
   align-items: center;
   justify-content: center;
   margin: 0px auto;
-  margin-top: 25px;
+  margin-top: 30px;
   border-radius: 50px;
+  border:none;
 }
 
 .content_right{
@@ -133,7 +146,7 @@ main{
 }
 .content_menu{
   display:flex;
-  
+  font-size: 20px;
   gap: 70px;
 }
 .content_menu .link:first-child a{
@@ -226,36 +239,11 @@ main{
   margin-top:20px;
 }
 
-@media (min-width: 470px) and (max-width: 660px ){
-  .header {
-      flex-basis: 100%;
-    }
-}
 
-@media (max-width: 469px) {
-  // .header {
-  //   flex-basis: 100%;
-  // }
-  .content_right {
-      flex-basis: 100%;
+@media (max-width: 770px ){
+  main {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
   }
-
-  // .vid-info p {
-  //     padding-left: 0;
-  // }
-
-  // .vid-info {
-  //     display: flex;
-  //     align-items: center;
-  //     flex-wrap: wrap;
-  // }   
-  // .vid-info p{
-  //       width: 15em;
-  //       word-wrap: break-word;
-  //     }
-  
-
-  // .play-video-info .sidebar__category {
-  //     margin-left: 0ex;
-  // }
 }

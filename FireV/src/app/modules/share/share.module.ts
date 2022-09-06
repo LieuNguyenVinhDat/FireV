@@ -36,7 +36,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     DiscoverComponent,
     IntroComponent,
     SnackBarComponent
-
   ],
   imports: [
     CommonModule,
@@ -56,6 +55,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSnackBarModule
   ],
   exports: [
+    ViewProfileComponent,
     ChannelComponent,
     HomeComponent,
     IntroComponent,
