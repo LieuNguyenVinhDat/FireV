@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700$display=swap');
 *{
-  padding: 0;
-  margin: 0;
-  border: none;
-  outline: none;
-  box-sizing: border-box;
-  cursor: pointer;
+  // padding: 0;
+  // margin: 0;
+  // border: none;
+  // outline: none;
+  // box-sizing: border-box;
+  // cursor: pointer;
   list-style: none;
   text-decoration: none;
 }
@@ -29,7 +29,7 @@ body{
   margin-top: 10px;
 }
 .header{
-  width: 100%;
+  width: 1440px;
   min-height: 300px;
   background: url("https://www.desktopbackground.org/p/2015/06/06/960068_best-10-wallpaper-nature-hd-pictures-image-gallery_4000x2236_h.jpg");
   display: flex;
@@ -49,7 +49,7 @@ main{
   display: flex;
 }
 .content_left{
-  width: 40%;
+  width: 600px;
   padding-bottom: 40px;
 }
 
@@ -95,30 +95,34 @@ main{
 
 .user_desc{
   margin-top: 25px;
-  padding-left: 18px;
+  width: 555px;
+  padding-left: 50px;
+  text-align: justify;
+  text-justify: inter-word;
   line-height: 30px;
   letter-spacing: 0.04rem;
   color: black;
 
 }
-.btn_connect{
+.btn_follow{
   width: 240px;
   height: 45px;
   color: var(#ffffff);
-  background: #121f26;
+  background: red;
   display: flex;
   color:white;
   font-size:large;
   align-items: center;
   justify-content: center;
   margin: 0px auto;
-  margin-top: 50px;
+  margin-top: 25px;
   border-radius: 50px;
 }
 
 .content_right{
-  width: 60%;
-  padding: 30px 60px;
+  width: 840px;
+  padding-top: 30px ;
+  padding-left: 20px;
   
 }
 .content_header{
@@ -199,7 +203,7 @@ main{
 }
 
 .vid-info {
-  width: 58%;
+  width: 450px;
   margin-left: 2%;
   float: right;
   flex-basis: 90%;
@@ -220,4 +224,38 @@ main{
 }
 .content_bottom{
   margin-top:20px;
+}
+
+@media (min-width: 470px) and (max-width: 660px ){
+  .header {
+      flex-basis: 100%;
+    }
+}
+
+@media (max-width: 469px) {
+  // .header {
+  //   flex-basis: 100%;
+  // }
+  .content_right {
+      flex-basis: 100%;
+  }
+
+  // .vid-info p {
+  //     padding-left: 0;
+  // }
+
+  // .vid-info {
+  //     display: flex;
+  //     align-items: center;
+  //     flex-wrap: wrap;
+  // }   
+  // .vid-info p{
+  //       width: 15em;
+  //       word-wrap: break-word;
+  //     }
+  
+
+  // .play-video-info .sidebar__category {
+  //     margin-left: 0ex;
+  // }
 }

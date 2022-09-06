@@ -16,12 +16,12 @@ import { animate, style, transition, trigger } from '@angular/animations';
       transition(':enter', [
         // when ngif has true
         style({ transform: 'translateX(0%)' }),
-        animate(350, style({ transform: 'translateX(1%)' }))
+        animate(.3, style({ transform: 'translateX(.2s)' }))
       ]),
       transition(':leave', [
         // when ngIf has false
-        animate(350, 
-        style({ transform: 'translateX(0%)' }))
+        animate(.3, 
+        style({ transform: 'translateX(.2s)' }))
       ])
     ])
   ]
