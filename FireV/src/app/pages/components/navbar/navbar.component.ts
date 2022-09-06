@@ -62,4 +62,10 @@ export class NavbarComponent implements OnInit {
   home() {
     this.router.navigateByUrl('./');
   }
+  goToAdd(){
+    this.router.navigateByUrl('add');
+  }
+  goToChannel(){
+    this.router.navigateByUrl('channel');
+  }
 }

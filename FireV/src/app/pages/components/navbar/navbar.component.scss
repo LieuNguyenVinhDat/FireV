@@ -206,14 +206,8 @@ nav{
 //     }
 // }
 
-// @media (max-width: 400px){
-//     button{
-//         width: 50px;
-//         text-align: center;
-//         border: 0;
-//         outline: 0;
-//     }
-//     .mic-icon {
-//         display: none;
-//     }
-// }
+@media (max-width: 400px){
+    .mic-icon {
+        display: none;
+    }
+}

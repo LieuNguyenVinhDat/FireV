@@ -12,17 +12,32 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { TooltipPosition } from '@angular/material/tooltip';
 import { UpdateComponent } from 'src/app/pages/components/update/update.component';
 import {MatDialog} from '@angular/material/dialog';
-
+import { InteractService } from 'src/app/services/interact.service';
+import { animate, style, transition, trigger } from '@angular/animations';
 @Component({
   selector: 'app-channel',
   templateUrl: './channel.component.html',
-  styleUrls: ['./channel.component.scss']
+  styleUrls: ['./channel.component.scss'],
+  animations: [
+    trigger('slidein', [
+      transition(':enter', [
+        // when ngif has true
+        style({ transform: 'translateX(0%)' }),
+        animate(.3, style({ transform: 'translateX(.5s)' }))
+      ]),
+      transition(':leave', [
+        // when ngIf has false
+        animate(.3, 
+        style({ transform: 'translateX(.5s)' }))
+      ])
+    ])
+  ]
 })
 export class ChannelComponent implements OnInit {
   videoDuration: any;
   currentTime: number = 0;
   totalTime: number = 0;
-
+  isMinimize: boolean = false;
   playVideo$ = this.store.select((state) => state.video.videoLoad);
   getAllExceptId$ = this.store.select((state) => state.video.videoList);
 
@@ -32,7 +47,8 @@ export class ChannelComponent implements OnInit {
   userId: string = '';
   author: User = <User>{};
   form!: FormGroup;
-  constructor(public dialog: MatDialog, public route: ActivatedRoute, 
+  constructor(public dialog: MatDialog, public route: ActivatedRoute,
+    public interactService : InteractService, 
     private store: Store<{ video: VideoState; auth: AuthState }>) {
     const id: Observable<string> = route.queryParams.pipe(map((p) => p['id']));
     id.subscribe((id) => {
@@ -67,6 +83,11 @@ export class ChannelComponent implements OnInit {
         this.userId = value;
         console.log('User id nè ' + this.userId);
       }
+    });
+    this.interactService.listenToggleMenu((isCheck) => {
+      this.isMinimize = isCheck
+      console.log(this.isMinimize)
+      // this.changeDetector.detectChanges()
     });
   }
   // openDialog1() {

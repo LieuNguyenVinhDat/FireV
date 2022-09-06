@@ -182,25 +182,25 @@
     </label>
     <div id="sidebarMenu">
         <ul class="sidebarMenuInner">
-            <li> <span class="nav-text">Trang Chủ</span><a
+            <li> <span (click)="goToPopularPage()" class="nav-text">Trang Chủ</span><a
                     (click)="goToHomePage()"><i style="float:right;"
                         class="material-icons">home</i>
                 </a>
             </li>
             <br>
-            <li><span class="nav-text">Thịnh Hành</span><a
+            <li><span (click)="goToPopularPage()" class="nav-text">Thịnh Hành</span><a
                     (click)="goToPopularPage()"><i style="float: right;"
                         class="material-icons">local_fire_department</i>
 
                 </a></li>
             <br>
-            <li> <span class="nav-text">Kênh Của Bạn</span><a
+            <li> <span (click)="goToPopularPage()" class="nav-text">Kênh Của Bạn</span><a
                     (click)="goToChannelPage()"><i style="float: right;"
                         class="material-icons">subscriptions</i>
 
                 </a></li>
             <br>
-            <li><span class="nav-text">Kênh Đăng Ký</span><a><i style="float:
+            <li><span (click)="goToPopularPage()" class="nav-text">Kênh Đăng Ký</span><a><i style="float:
                         right;" class="material-icons">library_add_check</i>
                 </a></li>
         </ul>
