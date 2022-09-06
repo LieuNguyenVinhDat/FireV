@@ -1,52 +1,6 @@
-<!-- <div id='center' class="main center" *ngIf="!isMinimize">
-  <div class="mainInner">
-    <div class="text">
-      <div class="home-content">
-        <div class="filters">
-          <button class="filter-options active">Tất cả</button>
-          <button (click)="goToPopularPage()" class="filter-options">Thịnh hành</button>
-          <button class="filter-options">Trực tiếp</button>
-        </div>
-      </div>
-      <div class="home-body">
-        <div class="home-main">
-          <div class="col-md-auto" *ngFor="let video of Video$ | async">
-            <div class="card" (click)="playVideo(video._id)">
-              <div class="image-title">
-                <img class="card-img-top" src="{{ video.image_url }}" alt="Card
-                  image cap">
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class=".col">
-                    <img src="{{ video.author.avatar }}" class="rounded-circle"
-                      alt="Avatar" id="avatar"
-                      (error)="handleError($event)" />
-                  </div>
-                  <div class=".col">
-                    <div class="title-v">
-                      <p class="card-title">{{ video.title }}</p>
-                      <p class="card-text">{{ video.author.name }} <br>{{
-                        video.views }} lượt xem - {{video.timeUp}}
-                        trước
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  -->
   <div *ngIf="isMinimize"  @slidein>
     <div class="container1">
-        <!-- <div class="banner">
-            <img src="../../../assets/images/banner.png" alt="">
-        </div> -->
         <div class="list-container">
             <div class="uyen-list">
                 <div class="vid-list" *ngFor="let video of Video$ | async">
