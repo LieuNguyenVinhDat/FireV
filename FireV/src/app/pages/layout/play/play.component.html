@@ -131,9 +131,11 @@
             <img src="{{(playVideo$ | async)?.author?.avatar}}">
             <div>
                 <p>{{(playVideo$ | async)?.author?.name}}</p>
-                <span>{{(playVideo$ | async)?.author?.subscribers}} người đăng kí</span>
+                <span>{{subscriber}} người đăng kí</span>
             </div>
-            <button type="button">Đăng Ký</button>
+            <button type="button" class="noneSub" (click)="updateSubcribe(idOfAuthor)" *ngIf="!isSubscribed && idOfAuthor != userId">Đăng Ký</button>
+            <button type="button" class="Sub" (click)="updateSubcribe(idOfAuthor)" *ngIf="isSubscribed && idOfAuthor != userId">
+              Đã đăng Ký</button>
         </div>
         <div class="vid-description">
             <p>{{(playVideo$ | async)?.title}}</p>
