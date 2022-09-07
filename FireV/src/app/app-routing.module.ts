@@ -10,6 +10,7 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./pages/layout/layout.module').then(m => m.LayoutModule)
   },
+  { path: 'Search', loadChildren: () => import('./pages/layout/search/search.module').then(m => m.SearchModule) },
   {
     path: '**',
     pathMatch: 'full',
